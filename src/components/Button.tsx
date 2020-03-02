@@ -16,3 +16,10 @@ const Button = styled(UiButton)`
 `;
 
 export default Button;
+
+// "name": "Start on Heroku: Node.js",
+// "description": "A barebones Node.js app using Express 4",
+// "repository": "https://gitlab.com/ivan.nlzh/hackathon-148-fo",
+// "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+// "keywords": ["node", "express", "heroku"],
+// "image": "heroku/nodejs",
