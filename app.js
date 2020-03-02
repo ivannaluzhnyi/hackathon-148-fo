@@ -1,4 +1,5 @@
 const express = require('express');
+const favicon = require('express-favicon');
 const http = require('http');
 const path = require('path');
 let app = express();
