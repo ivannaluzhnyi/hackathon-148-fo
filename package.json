@@ -2,6 +2,7 @@
     "name": "hackathon-148-fo",
     "version": "0.1.0",
     "private": true,
+    "main": "app.js",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
@@ -24,6 +25,7 @@
         "@types/react-dom": "^16.9.0",
         "classnames": "^2.2.6",
         "express": "^4.17.1",
+        "express-favicon": "^2.0.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "react-hook-form": "^4.10.1",
