@@ -1,28 +1,40 @@
 image: node:latest
 
-before_script:
-    - apt-get update -qy
-    - apt-get install -y ruby-dev
-    - gem install dpl
+cache:
+    paths:
+        - node_modules
 
 stages:
-    - staging
-    - production
+    - build
+    - deploy
 
-staging:
-    type: deploy
-    stage: staging
-    image: ruby:latest
+job_build:
+    stage: build
+    before_script:
+        - npm install
+        - export REACT_APP_BACKEND_HOST=`if [[ $CI_COMMIT_REF_NAME == "master" ]]; then echo $BACKEND_HOST_PROD; else echo $BACKEND_HOST_DEV; fi`
+        - export REACT_APP_API_KEY=`if [[ $CI_COMMIT_REF_NAME == "master" ]]; then echo $BACKEND_API_KEY_PROD; else echo $BACKEND_API_KEY_DEV; fi`
+        - echo 'REACT_APP_BACKEND_HOST=' $REACT_APP_BACKEND_HOST
+        - echo 'REACT_APP_API_KEY=' $REACT_APP_API_KEY
+        - if [[ $CI_COMMIT_REF_NAME == "master" ]]; then sed -ri '/log\(`[BF]O.*\);/d' src/services/api-service.ts ; fi
     script:
-        - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
-    only:
-        - staging
+        - npm run-script build
 
-production:
-    type: deploy
-    stage: production
+    artifacts:
+        paths:
+            - build/
+        expire_in: 1 hour
+
+job_deploy_to_prod:
+    stage: deploy
     image: ruby:latest
+    before_script:
+        - apt-get update -qy
+        - apt-get install -y ruby-dev
+        - gem install dpl
+
     script:
         - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+
     only:
         - master
