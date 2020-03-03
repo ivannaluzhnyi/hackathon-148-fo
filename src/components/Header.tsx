@@ -1,13 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
 import Button from './Button';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
+import { routes } from '../router/routes';
 
 interface Props {
     window?: () => Window;
@@ -32,13 +37,21 @@ const StyledSection = styled.section`
         &:nth-child(1) {
             margin-right: 10px;
         }
-    }
+}
 `;
 
 export interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = props => {
     const history = useHistory();
+    const { location } = history;
+
+    const isMatched = routes.find(
+        r => r.withoutHeade && r.path === location.pathname,
+    )
+        ? true
+        : false;
+    // location.pathname === '/login' || location.pathname === '/register';
 
     const handleRedirect = (page: string) => {
         history.push(`/${page}`);
@@ -50,28 +63,36 @@ const Header: React.FC<HeaderProps> = props => {
             <HideOnScroll {...(props as any)}>
                 <AppBar color="transparent">
                     <Toolbar>
-                        <Typography
-                            variant="h6"
-                            onClick={() => handleRedirect('')}
-                        >
-                            ADW - 148
-                        </Typography>
+                        {!isMatched ? (
+                            <Typography
+                                variant="h6"
+                                onClick={() => handleRedirect('')}
+                            >
+                                ADW - 148
+                            </Typography>
+                        ) : (
+                            <IconButton onClick={() => handleRedirect('')}>
+                                <ArrowBackIosIcon />
+                            </IconButton>
+                        )}
 
-                        <StyledSection>
-                            <Button
-                                variant="outlined"
-                                onClick={() => handleRedirect('login')}
-                            >
-                                Se connecter
-                            </Button>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={() => handleRedirect('register')}
-                            >
-                                S'incrire
-                            </Button>
-                        </StyledSection>
+                        {!isMatched && (
+                            <StyledSection>
+                                <Button
+                                    variant="outlined"
+                                    onClick={() => handleRedirect('login')}
+                                >
+                                    Se connecter
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={() => handleRedirect('register')}
+                                >
+                                    S'incrire
+                                </Button>
+                            </StyledSection>
+                        )}
 
                         <div></div>
                     </Toolbar>
