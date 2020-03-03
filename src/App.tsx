@@ -4,24 +4,32 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import routes from './router/routes';
 import PrivateRoute from './router/PrivateRoute';
 
+const Content = () => (
+    <Router>
+        <Switch>
+            {routes.map(({ isPrivateRoute, ...props }, idx) =>
+                isPrivateRoute ? (
+                    <PrivateRoute key={idx} {...props} />
+                ) : (
+                    <Route
+                        key={idx}
+                        path={props.path}
+                        component={props.component}
+                        exact={props.exact}
+                    />
+                ),
+            )}
+        </Switch>
+    </Router>
+);
+
 function App() {
     return (
-        <Router>
-            <Switch>
-                {routes.map(({ isPrivateRoute, ...props }, idx) =>
-                    isPrivateRoute ? (
-                        <PrivateRoute key={idx} {...props} />
-                    ) : (
-                        <Route
-                            key={idx}
-                            path={props.path}
-                            component={props.component}
-                            exact={props.exact}
-                        />
-                    ),
-                )}
-            </Switch>
-        </Router>
+        <>
+            <header>Header </header>
+            <Content />
+            <footer>footer</footer>
+        </>
     );
 }
 
