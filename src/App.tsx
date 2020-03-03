@@ -6,31 +6,31 @@ import PrivateRoute from './router/PrivateRoute';
 import { Header } from './components';
 
 const Content = () => (
-    <Router>
-        <Switch>
-            {routes.map(({ isPrivateRoute, ...props }, idx) =>
-                isPrivateRoute ? (
-                    <PrivateRoute key={idx} {...props} />
-                ) : (
-                    <Route
-                        key={idx}
-                        path={props.path}
-                        component={props.component}
-                        exact={props.exact}
-                    />
-                ),
-            )}
-        </Switch>
-    </Router>
+    <Switch>
+        {routes.map(({ isPrivateRoute, ...props }, idx) =>
+            isPrivateRoute ? (
+                <PrivateRoute key={idx} {...props} />
+            ) : (
+                <Route
+                    key={idx}
+                    path={props.path}
+                    component={props.component}
+                    exact={props.exact}
+                />
+            ),
+        )}
+    </Switch>
 );
 
 function App() {
     return (
         <>
-            <Header />
-            <Content />
+            <Router>
+                <Header />
+                <Content />
 
-            <footer>footer</footer>
+                <footer>footer</footer>
+            </Router>
         </>
     );
 }

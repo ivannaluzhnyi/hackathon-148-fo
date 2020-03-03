@@ -50,7 +50,7 @@ const OurValue: React.FC = () => {
                 <Grid
                     container
                     direction="row"
-                    justify="space-around"
+                    justify="space-between"
                     alignItems="center"
                     spacing={3}
                 >
