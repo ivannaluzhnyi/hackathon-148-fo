@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import config from '../utils/config';
 import Stepper from '../components/Stepper';
 
 const Home = () => {
     const [activeStep, setActiveStep] = useState(1);
+
+    useEffect(() => {
+        setActiveStep(1);
+    }, []);
     return (
         <div>
             <h1>Home</h1>
