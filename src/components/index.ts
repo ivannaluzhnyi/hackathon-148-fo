@@ -7,6 +7,7 @@ import Section from './Section';
 
 import OurValue from './home-page/OurValue';
 import CompletedProject from './home-page/CompletedProject';
+import MainAddProfile from './home-page/MainAddProfile';
 
 export {
     Button,
@@ -17,4 +18,5 @@ export {
     OurValue,
     Section,
     CompletedProject,
+    MainAddProfile,
 };

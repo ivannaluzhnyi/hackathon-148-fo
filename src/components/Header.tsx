@@ -5,12 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import Button from './Button';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window?: () => Window;
     children: React.ReactElement;
 }
@@ -26,22 +25,48 @@ function HideOnScroll(props: Props) {
     );
 }
 
+const StyledSection = styled.section`
+    margin-left: auto;
+
+    & > button {
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+    }
+`;
+
 export interface HeaderProps {}
 
-// const Styled = styled.header``;
-
 const Header: React.FC<HeaderProps> = props => {
-    // return <Styled>Header</Styled>;
+    const history = useHistory();
+
+    const handleRedirect = (page: string) => {
+        history.push(`/${page}`);
+    };
 
     return (
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...(props as any)}>
-                <AppBar>
+                <AppBar color="transparent">
                     <Toolbar>
-                        <Typography variant="h6">
+                        <Typography
+                            variant="h6"
+                            onClick={() => handleRedirect('login')}
+                        >
                             Scroll to Hide App Bar
                         </Typography>
+
+                        <StyledSection>
+                            <Button onClick={() => handleRedirect('login')}>
+                                Se connecter
+                            </Button>
+                            <Button onClick={() => handleRedirect('register')}>
+                                S'incrire
+                            </Button>
+                        </StyledSection>
+
+                        <div></div>
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>

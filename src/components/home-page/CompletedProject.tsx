@@ -95,8 +95,8 @@ const CompletedProject = () => {
                     alignItems="center"
                     spacing={3}
                 >
-                    {data.map(({ src }) => (
-                        <Grid item xs>
+                    {data.map(({ src }, idx) => (
+                        <Grid key={idx} item xs>
                             <ImageComponenent src={src} />
                         </Grid>
                     ))}
