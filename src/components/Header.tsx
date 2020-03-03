@@ -52,16 +52,23 @@ const Header: React.FC<HeaderProps> = props => {
                     <Toolbar>
                         <Typography
                             variant="h6"
-                            onClick={() => handleRedirect('login')}
+                            onClick={() => handleRedirect('')}
                         >
-                            Scroll to Hide App Bar
+                            ADW - 148
                         </Typography>
 
                         <StyledSection>
-                            <Button onClick={() => handleRedirect('login')}>
+                            <Button
+                                variant="outlined"
+                                onClick={() => handleRedirect('login')}
+                            >
                                 Se connecter
                             </Button>
-                            <Button onClick={() => handleRedirect('register')}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={() => handleRedirect('register')}
+                            >
                                 S'incrire
                             </Button>
                         </StyledSection>

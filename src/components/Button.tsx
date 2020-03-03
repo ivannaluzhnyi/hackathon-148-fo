@@ -7,15 +7,7 @@ const Button = styled(UiButton)`
     padding: 7px 14px;
 
     &:hover {
-        background-color: #5469d4;
     }
 `;
 
 export default Button;
-
-// "name": "Start on Heroku: Node.js",
-// "description": "A barebones Node.js app using Express 4",
-// "repository": "https://gitlab.com/ivan.nlzh/hackathon-148-fo",
-// "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
-// "keywords": ["node", "express", "heroku"],
-// "image": "heroku/nodejs",
