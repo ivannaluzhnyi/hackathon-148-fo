@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import routes from './router/routes';
 import PrivateRoute from './router/PrivateRoute';
+import { Header } from './components';
 
 const Content = () => (
     <Router>
@@ -26,8 +27,9 @@ const Content = () => (
 function App() {
     return (
         <>
-            <header>Header </header>
+            <Header />
             <Content />
+
             <footer>footer</footer>
         </>
     );

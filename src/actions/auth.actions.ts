@@ -15,7 +15,7 @@ import {
     FETCH_LOGIN_FAILURE,
     REDUX_RESET_STATE,
 } from './actionTypes';
-import { LoginProps } from '../pages/Login';
+import { LoginProps } from '../pages/auth/Login';
 
 const fetchLoginAsync = createAsyncAction(
     FETCH_LOGIN_REQUEST,

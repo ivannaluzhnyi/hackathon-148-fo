@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { fetchLoginAsync } from '../actions/auth.actions';
+import { fetchLoginAsync } from '../../actions/auth.actions';
 import { RootState } from 'Types';
 
 export interface LoginProps {
