@@ -12,11 +12,10 @@ job_build:
     stage: build
     before_script:
         - npm install
-        - export REACT_APP_BACKEND_HOST=`if [[ $CI_COMMIT_REF_NAME == "master" ]]; then echo $BACKEND_HOST_PROD; else echo $BACKEND_HOST_DEV; fi`
-        - export REACT_APP_API_KEY=`if [[ $CI_COMMIT_REF_NAME == "master" ]]; then echo $BACKEND_API_KEY_PROD; else echo $BACKEND_API_KEY_DEV; fi`
-        - echo 'REACT_APP_BACKEND_HOST=' $REACT_APP_BACKEND_HOST
-        - echo 'REACT_APP_API_KEY=' $REACT_APP_API_KEY
-        - if [[ $CI_COMMIT_REF_NAME == "master" ]]; then sed -ri '/log\(`[BF]O.*\);/d' src/services/api-service.ts ; fi
+        - export REACT_APP_BACKEND_HOST="$BACKEND_HOST"
+        - echo "REACT_APP_BACKEND_HOST=$REACT_APP_BACKEND_HOST"
+        - export REACT_APP_API_KEY="$API_KEY"
+        - echo "REACT_APP_API_KEY=$REACT_APP_API_KEY"
     script:
         - npm run-script build
 
