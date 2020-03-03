@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Home from '../pages/Home';
-import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
+import { Login, Register } from '../pages/auth';
 
 export interface RouteProps {
     component: React.ComponentType;
@@ -21,6 +22,10 @@ export default [
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/register',
+        component: Register,
     },
 
     {

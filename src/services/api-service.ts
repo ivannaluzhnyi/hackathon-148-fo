@@ -34,9 +34,6 @@ const apiRequest = <T>({
         const Authorization = 'Authorization';
         settings.headers[Authorization] = `Bearer ${token}`;
     }
-    if (isSubscription) {
-        settings.headers['x-api-key'] = Config.ApiKey;
-    }
 
     return ajax(settings).pipe(
         catchError(({ message, status, response }) => {

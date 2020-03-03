@@ -5,10 +5,9 @@
     "main": "app.js",
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "CI=false react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "deploy": ""
+        "eject": "react-scripts eject"
     },
     "engines": {
         "npm": "6.12.1",
@@ -16,6 +15,7 @@
     },
     "dependencies": {
         "@material-ui/core": "^4.9.5",
+        "@material-ui/icons": "^4.9.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
