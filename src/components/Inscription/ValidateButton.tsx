@@ -9,7 +9,8 @@ const ValidateButton: React.FC<{
     onClick?: any;
     text: string;
     className?: any;
-}> = ({ onClick, text, className }) => {
+    disabled?: boolean;
+}> = ({ onClick, text, className, disabled }) => {
     return (
         <Grid container direction="row" alignItems="center" justify="center">
             <SendButton
@@ -18,6 +19,7 @@ const ValidateButton: React.FC<{
                 variant="contained"
                 color="primary"
                 className={className}
+                disabled={disabled}
             >
                 {text}
             </SendButton>

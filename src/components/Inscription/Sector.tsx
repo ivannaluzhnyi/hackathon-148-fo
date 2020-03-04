@@ -15,42 +15,6 @@ const Form = styled.form`
     width: 80%;
 `;
 
-const sectors1 = [
-    {
-        label: 'Conseil',
-        value: 'council',
-        id: 'council',
-    },
-    {
-        label: 'Création',
-        value: 'creation',
-        id: 'creation',
-    },
-    {
-        label: 'Application',
-        value: 'application',
-        id: 'application',
-    },
-];
-
-const sectors2 = [
-    {
-        label: 'Web',
-        value: 'web',
-        id: 'web',
-    },
-    {
-        label: 'Event',
-        value: 'event',
-        id: 'event',
-    },
-    {
-        label: 'Buzz',
-        value: 'buzz',
-        id: 'buzz',
-    },
-];
-
 const GridItem: React.FC<any> = props => {
     const StyledG = styled(Grid)`
         border: ${(props: any) =>
@@ -94,20 +58,29 @@ const SectorTextItem: React.FC<any> = props => {
     );
 };
 
-// const WrapperSectore: React.FC<any> =() => {
-
-//     const use
-
-// }
-
-const Sector = () => {
+const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
+    handelValidateScreen,
+}) => {
     const [sector, setSector] = useState<Select | undefined>();
     const [sectorCategories, setSectorCategories] = useState<Select[]>([]);
 
-    console.log('sectorCategories => ', sectorCategories);
+    const condition = sector !== undefined && sectorCategories.length !== 0;
+
+    const handelClick = (e: any) => {
+        e.preventDefault();
+
+        if (condition) {
+            handelValidateScreen({
+                sector: {
+                    value: sector?.value,
+                    categories: sectorCategories,
+                },
+            });
+        }
+    };
 
     return (
-        <Form>
+        <Form onSubmit={handelClick}>
             <h2>Votre secteur</h2>
             <h4>
                 Sélectionnez vos secteurs corespondant à votre domaine
@@ -186,7 +159,11 @@ const Sector = () => {
                         )}
                 </Wrapper>
             ))}
-            <ValidateButton text="SUIVANt" />;
+            <ValidateButton
+                disabled={!condition}
+                onClick={handelClick}
+                text="SUIVANt"
+            />
         </Form>
     );
 };

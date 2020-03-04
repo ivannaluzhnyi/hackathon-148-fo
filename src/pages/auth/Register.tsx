@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Loader from 'react-loader-spinner';
 import {
     Grid,
     makeStyles,
@@ -9,14 +10,16 @@ import {
 } from '@material-ui/core';
 import { Stepper, Icon } from '../../components';
 import resources, { EResource } from '../../utils/resources';
-
-const Wrapper = styled(Grid)``;
-
-const MainBlock = styled(Grid)``;
-
-const RightBlock = styled(Grid)`
-    background-color: #6091fc;
-`;
+import {
+    Proffesion,
+    Sector,
+    Survey,
+    UserInformation,
+    MoreInformation,
+} from '../../components/Inscription';
+import { sendInscriptionAsync } from '../../actions/inscription.actions';
+import { RootState } from 'Types';
+import { connect } from 'react-redux';
 
 const StyledStepper = styled(Stepper)`
     width: 80%;
@@ -48,6 +51,15 @@ const TitleImage = styled.h1`
     opacity: 1;
 `;
 
+const CustomLoader = () => {
+    const Styledloader = styled(Loader)`
+        margin-top: 60px;
+    `;
+    return (
+        <Styledloader type="Watch" color="#00BFFF" height={120} width={120} />
+    );
+};
+
 const useStyles = makeStyles(theme => ({
     root: {
         height: '100vh',
@@ -71,15 +83,47 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export interface RegisterProps {}
+const containers = [
+    Sector, // 0
+    Proffesion, // 1
+    MoreInformation, // 2
+    UserInformation, // 3
+    Survey, // 4
+    CustomLoader,
+];
 
-const Register: React.FC<RegisterProps> = () => {
+export type RegisterProps = {} & ReturnType<typeof mapStateToProps> &
+    typeof dispatchProps;
+
+const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
     const classes = useStyles();
     const [activeStep, setStep] = useState<number>(0);
+    const [currentScreenIndex, setIndex] = useState<number>(0);
 
     useEffect(() => {
         setStep(1);
     }, []);
+
+    const [inscriptionData, setData] = useState<any>({});
+
+    const handelValidateScreen = (data: any) => {
+        setData({
+            ...inscriptionData,
+            ...data,
+        });
+
+        setIndex(currentScreenIndex + 1);
+
+        if (currentScreenIndex === 4) {
+            sendInscriptionDispatch(inscriptionData);
+        }
+    };
+
+    const renderScreen = () => {
+        const Component: any = containers[currentScreenIndex];
+
+        return <Component handelValidateScreen={handelValidateScreen} />;
+    };
 
     return (
         <Grid container component="main" className={classes.root}>
@@ -97,11 +141,17 @@ const Register: React.FC<RegisterProps> = () => {
                 <div className={classes.paper}>
                     <Logo />
 
-                    <Typography component="h1" variant="h5">
-                        S'inscrir
-                    </Typography>
+                    {currentScreenIndex !== 0 && (
+                        <>
+                            <Typography component="h1" variant="h5">
+                                S'inscrir
+                            </Typography>
 
-                    <Stepper activeStep={activeStep} />
+                            <StyledStepper activeStep={activeStep} />
+                        </>
+                    )}
+
+                    {renderScreen()}
                 </div>
             </Grid>
             <Grid item xs={false} sm={4} md={5} className={classes.image}>
@@ -111,4 +161,13 @@ const Register: React.FC<RegisterProps> = () => {
     );
 };
 
-export default Register;
+const mapStateToProps = (state: RootState) => ({
+    // authState: state.authReducer,
+    // settingState: state.settingReducer,
+});
+
+const dispatchProps = {
+    sendInscriptionDispatch: sendInscriptionAsync.request,
+};
+
+export default connect(mapStateToProps, dispatchProps)(Register);

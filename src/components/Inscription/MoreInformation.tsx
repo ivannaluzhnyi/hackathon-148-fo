@@ -9,11 +9,17 @@ const Form = styled.form`
     width: 80%;
 `;
 
-const MoreInformation = () => {
+const MoreInformation: React.FC<{
+    handelValidateScreen: (props: any) => void;
+}> = ({ handelValidateScreen }) => {
     const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = (data: any) => {
-        console.log('data => ', data);
+        handelValidateScreen({
+            moreInformation: {
+                ...data,
+            },
+        });
     };
 
     return (

@@ -11,7 +11,6 @@ export interface RouteProps {
     path: string;
     exact?: boolean;
     title?: string;
-    isPrivateRoute?: boolean;
     withoutHeade?: boolean;
     withouFooter?: boolean;
 }
@@ -41,14 +40,16 @@ const routes = [
     },
 
     {
-        path: '/admin',
-        component: Home,
-        isPrivateRoute: true,
-    },
-    {
         path: '*',
         component: NotFound,
     },
 ];
 
-export { routes };
+const privateRoutes = [
+    {
+        path: '/admin',
+        component: Home,
+    },
+];
+
+export { routes, privateRoutes };

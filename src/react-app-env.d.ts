@@ -15,3 +15,5 @@ declare module 'Types' {
 
     export type ExpirienceLevel = 0 | 1 | 2 | 3;
 }
+
+declare module 'react-loader-spinner';

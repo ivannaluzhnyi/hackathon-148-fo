@@ -34,8 +34,23 @@ export interface QuestionOptions {
     label: string;
 }
 
-const Survey: React.FC = () => {
+const Survey: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
+    handelValidateScreen,
+}) => {
     const [radiosValue, setRadiosValue] = React.useState<any>({});
+
+    const condition =
+        Object.keys(radiosValue).length === wording.SurveyQuestion.length;
+
+    const handelClick = (e: any) => {
+        e.preventDefault();
+
+        if (condition) {
+            handelValidateScreen({
+                surveyResponses: radiosValue,
+            });
+        }
+    };
 
     const renderRadios = (
         formLabel: string,
@@ -64,7 +79,7 @@ const Survey: React.FC = () => {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handelClick}>
             <Title>Dernière étape afin de valider votre profile</Title>
 
             <PageDescription>
@@ -86,7 +101,10 @@ const Survey: React.FC = () => {
                     idx,
                 ),
             )}
-            <ValidateButton text="Envoyer ma candidature" />
+            <ValidateButton
+                disabled={!condition}
+                text="Envoyer ma candidature"
+            />
         </Form>
     );
 };
