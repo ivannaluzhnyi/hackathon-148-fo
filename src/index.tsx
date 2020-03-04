@@ -4,16 +4,30 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
-import { StylesProvider } from '@material-ui/core';
+import {
+    StylesProvider,
+    createMuiTheme,
+    MuiThemeProvider,
+} from '@material-ui/core';
 
 import './index.css';
 import GlobalStyles from './fonts/fonts';
 
+console.log('GlobalStyles => ', GlobalStyles);
+console.log('GlobalStyles> => ', <GlobalStyles />);
+
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: 'Open Sans, Arial',
+    },
+});
 render(
     <Provider store={store}>
         <StylesProvider injectFirst>
-            <GlobalStyles />
-            <App />
+            <MuiThemeProvider theme={theme}>
+                <App />
+            </MuiThemeProvider>
+            {/* <GlobalStyles /> */}
         </StylesProvider>
     </Provider>,
 

@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { Grid, TextField, CssBaseline, makeStyles } from '@material-ui/core';
 
 import Alert from '@material-ui/lab/Alert';
-import { ValidateButton } from '.';
+import ValidateButton from './ValidateButton';
 
-const Form = styled.form`
+const Form = styled.div`
     width: 80%;
 `;
 
@@ -25,11 +25,17 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const UserInformation = () => {
+const UserInformation: React.FC<{
+    handelValidateScreen: (props: any) => void;
+}> = ({ handelValidateScreen }) => {
     const { register, handleSubmit, getValues, errors } = useForm();
 
     const onSubmit = (data: any) => {
-        console.log(data);
+        handelValidateScreen({
+            userInfo: {
+                ...data,
+            },
+        });
     };
     const classes = useStyles();
 

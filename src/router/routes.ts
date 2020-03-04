@@ -5,14 +5,12 @@ import NotFound from '../pages/NotFound';
 import { Login, Register } from '../pages/auth';
 
 import Survey from '../components/Inscription/Survey';
-import { Inscription } from '../components';
 
 export interface RouteProps {
     component: React.ComponentType;
     path: string;
     exact?: boolean;
     title?: string;
-    isPrivateRoute?: boolean;
     withoutHeade?: boolean;
     withouFooter?: boolean;
 }
@@ -31,7 +29,7 @@ const routes = [
         withouFooter: true,
     },
     {
-        path: '/register',
+        path: '/inscription',
         component: Register,
     },
     {
@@ -42,20 +40,16 @@ const routes = [
     },
 
     {
-        path: '/inscription',
-        component: Inscription,
-        withoutHeade: true,
-        withouFooter: true,
-    },
-    {
-        path: '/admin',
-        component: Home,
-        isPrivateRoute: true,
-    },
-    {
         path: '*',
         component: NotFound,
     },
 ];
 
-export { routes };
+const privateRoutes = [
+    {
+        path: '/admin',
+        component: Home,
+    },
+];
+
+export { routes, privateRoutes };

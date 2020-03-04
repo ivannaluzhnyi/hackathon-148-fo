@@ -22,7 +22,7 @@ import {
 } from '@material-ui/core';
 import { Select } from 'Types';
 import { getOptionSkills } from '../../utils/helper';
-import { ValidateButton } from './index';
+import ValidateButton from './ValidateButton';
 
 interface SkillState extends Select {
     expirienceLevel?: string | number;
@@ -154,7 +154,9 @@ const SkillList: React.FC<SkillListProps> = ({ skills, ...rest }) => {
     );
 };
 
-const Proffesion = () => {
+const Proffesion: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
+    handelValidateScreen,
+}) => {
     const [expirience, setExpirience] = useState<Select>(defeaultExpirience);
     const [typeUser, setTypeUser] = useState<Select>(defeaultTypeUser);
     const [categories, setCategories] = useState<Select[]>([]);
@@ -162,10 +164,25 @@ const Proffesion = () => {
 
     const classes = useStyleProffesion();
 
-    console.log('categories = >', categories);
-    console.log('skils = >', skills);
-    console.log('expirience = >', expirience);
-    console.log('typeUser = >', typeUser);
+    const condition =
+        expirience !== undefined &&
+        typeUser !== undefined &&
+        categories.length !== 0 &&
+        skills.length !== 0;
+    const handelClick = (e: any) => {
+        e.preventDefault();
+
+        if (condition) {
+            handelValidateScreen({
+                profession: {
+                    expirience,
+                    typeUser,
+                    categories,
+                    skills,
+                },
+            });
+        }
+    };
 
     const handleRemoveSkill = (value: string) => {
         const newSkiils = skills.filter(s => s.value !== value);
@@ -272,7 +289,7 @@ const Proffesion = () => {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handelClick}>
             <h2>Votre métier</h2>
             <Grid
                 className={classes.select}
@@ -295,7 +312,7 @@ const Proffesion = () => {
                 onDelete={handleRemoveSkill}
                 handleLevelChange={handleLevelChange}
             />
-            <ValidateButton text="suivant" />;
+            <ValidateButton disabled={!condition} text="suivant" />;
         </Form>
     );
 };
