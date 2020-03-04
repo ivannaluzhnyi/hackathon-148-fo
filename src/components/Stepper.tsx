@@ -86,14 +86,16 @@ const steps = ['First ', 'Second', 'Coll nan ?'];
 
 export interface StepperProps {
     activeStep: number;
+    className?: string;
 }
 
-const Stepper: React.FC<StepperProps> = ({ activeStep }) => {
+const Stepper: React.FC<StepperProps> = ({ activeStep, className }) => {
     return (
         <UiStepper
             alternativeLabel
             activeStep={activeStep}
             connector={<ColorlibConnector />}
+            className={className}
         >
             {steps.map(label => (
                 <Step key={label}>

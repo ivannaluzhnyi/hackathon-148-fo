@@ -6,4 +6,6 @@ declare module 'Types' {
     export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
     export type SelectEvent = React.ChangeEvent<HTMLSelectElement>;
     export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+    // export interface
 }

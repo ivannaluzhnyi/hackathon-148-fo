@@ -90,5 +90,52 @@
                 }
             ]
         }
-    ]
+    ],
+
+    "categoriesOptions": [
+        {
+            "id": "front_end_developer",
+            "value": "front_end_developer",
+            "label": "Developpeu Web Front-end"
+        },
+
+        {
+            "id": "back_end_developer",
+            "value": "back_end_developer",
+            "label": "Developpeu Web Bakc-end"
+        }
+    ],
+
+    "levelOfExpirience": [
+        {
+            "id": "junior",
+            "value": "junior",
+            "label": "Junior (0-2 ans)"
+        },
+        {
+            "id": "intermediary",
+            "value": "intermediary",
+            "label": "Intermédiaire (2-5 ans)"
+        },
+        {
+            "id": "senior",
+            "value": "senior",
+            "label": "Senior (5+ ans)"
+        }
+    ],
+
+    "skilsOutilsOptions": {
+        "back_end_developer": [
+            {
+                "id": "php",
+                "value": "php",
+                "label": "PHP"
+            },
+            {
+                "id": "javascript",
+                "value": "javascript",
+                "label": "Javascript"
+            }
+        ]
+    }
 }

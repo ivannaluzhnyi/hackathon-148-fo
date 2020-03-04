@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { StylesProvider } from '@material-ui/core';
 
+import './index.css';
+
 render(
     <Provider store={store}>
         <StylesProvider injectFirst>
