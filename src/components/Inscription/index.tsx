@@ -42,7 +42,7 @@ const Inscription: React.FC<InscriptionProps> = () => {
 
     return (
         <Wrapper container>
-            <MainBlock item md={7}>
+            <MainBlock item xs md={7}>
                 <Container>
                     <Grid
                         container
@@ -54,10 +54,6 @@ const Inscription: React.FC<InscriptionProps> = () => {
                         <StyledStepper activeStep={activeStep} />
 
                         <Proffesion />
-
-                        <p>qsdqs</p>
-                        <p>qsdqs</p>
-                        <p>qsdqs</p>
                     </Grid>
                 </Container>
             </MainBlock>

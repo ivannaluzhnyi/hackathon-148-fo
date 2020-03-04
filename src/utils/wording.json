@@ -124,7 +124,7 @@
         }
     ],
 
-    "skilsOutilsOptions": {
+    "skillsOutilsOptions": {
         "back_end_developer": [
             {
                 "id": "php",
@@ -135,7 +135,37 @@
                 "id": "javascript",
                 "value": "javascript",
                 "label": "Javascript"
+            },
+            {
+                "id": "nodejs",
+                "value": "nodejs",
+                "label": "Node.js"
+            }
+        ],
+
+        "front_end_developer": [
+            {
+                "id": "reactjs",
+                "value": "reactjs",
+                "label": "React.js"
+            },
+            {
+                "id": "html5",
+                "value": "html5",
+                "label": "HTML5"
             }
         ]
-    }
+    },
+    "typeUser": [
+        {
+            "id": "freelance",
+            "value": "freelance",
+            "label": "Freelance"
+        },
+        {
+            "id": "microservices",
+            "value": "microservices",
+            "label": "Microservices"
+        }
+    ]
 }

@@ -1,3 +1,9 @@
 .MuiStepper-horizontal {
     background-color: transparent;
 }
+
+@media (max-width: 960px) {
+    .select-margin {
+        margin-bottom: 20px;
+    }
+}
