@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-    Grid,
-    Container,
     FormControl,
     RadioGroup,
     FormControlLabel,
@@ -12,13 +10,7 @@ import {
 
 import wording from '../../utils/wording.json';
 
-import Button from '../Button';
-
-const Wrapper = styled(Grid)``;
-
-const MainBlock = styled(Grid)`
-    background-color: #e8e8e8;
-`;
+import { ValidateButton } from './index';
 
 const Title = styled.h2`
     margin-top: 30px;
@@ -32,8 +24,8 @@ const QuestionLabel = styled.h5`
     margin: 10px 0;
 `;
 
-const SendButton = styled(Button)`
-    margin: 30px 0;
+const Form = styled.form`
+    width: 80%;
 `;
 
 export interface QuestionOptions {
@@ -72,38 +64,30 @@ const Survey: React.FC = () => {
     );
 
     return (
-        <Wrapper container>
-            <MainBlock item md={7}>
-                <Container>
-                    <Title>Dernière étape afin de valider votre profile</Title>
+        <Form>
+            <Title>Dernière étape afin de valider votre profile</Title>
 
-                    <PageDescription>
-                        Nous faisons passer une fasse de test afin de valider
-                        votre profile, si vous en compléter pas ce QCM vous ne
-                        pouvez pas valider votre candidature.
-                    </PageDescription>
+            <PageDescription>
+                Nous faisons passer une fasse de test afin de valider votre
+                profile, si vous en compléter pas ce QCM vous ne pouvez pas
+                valider votre candidature.
+            </PageDescription>
 
-                    {wording.SurveyQuestion.map(({ label, id, options }, idx) =>
-                        renderRadios(
-                            label,
-                            options,
-                            (e: any) =>
-                                setRadiosValue({
-                                    ...radiosValue,
-                                    [id]: e.currentTarget.value,
-                                }),
-                            radiosValue[id] || '',
-                            idx,
-                        ),
-                    )}
-
-                    <SendButton color="inherit">
-                        Envoyer ma candidature
-                    </SendButton>
-                </Container>
-            </MainBlock>
-            <Grid item md={5}></Grid>
-        </Wrapper>
+            {wording.SurveyQuestion.map(({ label, id, options }, idx) =>
+                renderRadios(
+                    label,
+                    options,
+                    (e: any) =>
+                        setRadiosValue({
+                            ...radiosValue,
+                            [id]: e.currentTarget.value,
+                        }),
+                    radiosValue[id] || '',
+                    idx,
+                ),
+            )}
+            <ValidateButton text="Envoyer ma candidature" />
+        </Form>
     );
 };
 

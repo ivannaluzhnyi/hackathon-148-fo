@@ -20,9 +20,9 @@ import {
     IconButton,
     Button as UIButton,
 } from '@material-ui/core';
-import Button from '../Button';
 import { Select } from 'Types';
 import { getOptionSkills } from '../../utils/helper';
+import { ValidateButton } from './index';
 
 interface SkillState extends Select {
     expirienceLevel?: string | number;
@@ -273,8 +273,7 @@ const Proffesion = () => {
 
     return (
         <Form>
-            <h3>Votre métier</h3>
-
+            <h2>Votre métier</h2>
             <Grid
                 className={classes.select}
                 container
@@ -288,23 +287,15 @@ const Proffesion = () => {
                     {renderExpirience()}
                 </Grid>
             </Grid>
-
             <Grid>{renderCategory()}</Grid>
             <Grid>{renderSkills()}</Grid>
             <Grid></Grid>
-
             <SkillList
                 skills={skills}
                 onDelete={handleRemoveSkill}
                 handleLevelChange={handleLevelChange}
             />
-
-            <Button
-                variant="contained"
-                onClick={() => console.log('validate proffesion')}
-            >
-                SUIVANt
-            </Button>
+            <ValidateButton text="suivant" />;
         </Form>
     );
 };

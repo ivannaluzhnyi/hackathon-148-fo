@@ -103,6 +103,11 @@
             "id": "back_end_developer",
             "value": "back_end_developer",
             "label": "Developpeu Web Bakc-end"
+        },
+        {
+            "id": "ux_designers",
+            "value": "ux_designers",
+            "label": "UX designers"
         }
     ],
 
@@ -154,6 +159,18 @@
                 "value": "html5",
                 "label": "HTML5"
             }
+        ],
+        "ux_designers": [
+            {
+                "id": "sketch",
+                "value": "sketch",
+                "label": "Sketch"
+            },
+            {
+                "id": "balsamiq",
+                "value": "balsamiq",
+                "label": "Balsamiq"
+            }
         ]
     },
     "typeUser": [
@@ -167,5 +184,67 @@
             "value": "microservices",
             "label": "Microservices"
         }
-    ]
+    ],
+
+    "sectorsList": [
+        [
+            {
+                "label": "Conseil",
+                "value": "council",
+                "id": "council"
+            },
+            {
+                "label": "Création",
+                "value": "creation",
+                "id": "creation"
+            },
+            {
+                "label": "Application",
+                "value": "application",
+                "id": "application"
+            }
+        ],
+        [
+            {
+                "label": "Web",
+                "value": "web",
+                "id": "web"
+            },
+            {
+                "label": "Event",
+                "value": "event",
+                "id": "event"
+            },
+            {
+                "label": "Buzz",
+                "value": "buzz",
+                "id": "buzz"
+            }
+        ]
+    ],
+
+    "sectoreCategoryOptions": {
+        "council": [
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            }
+        ]
+    }
 }
