@@ -10,7 +10,7 @@ import {
 
 import wording from '../../utils/wording.json';
 
-import { ValidateButton } from './index';
+import ValidateButton from './ValidateButton';
 
 const Title = styled.h2`
     margin-top: 30px;

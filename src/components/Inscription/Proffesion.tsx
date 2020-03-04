@@ -22,7 +22,7 @@ import {
 } from '@material-ui/core';
 import { Select } from 'Types';
 import { getOptionSkills } from '../../utils/helper';
-import { ValidateButton } from './index';
+import ValidateButton from './ValidateButton';
 
 interface SkillState extends Select {
     expirienceLevel?: string | number;

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { routes } from './router/routes';
 import PrivateRoute from './router/PrivateRoute';
 import { Header } from './components';
+import GlobalStyles from './fonts/fonts';
 
 const Content = () => (
     <Switch>
@@ -27,6 +28,7 @@ function App() {
         <>
             <Router>
                 <Header />
+                <GlobalStyles />
                 <Content />
 
                 <footer>footer</footer>

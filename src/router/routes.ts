@@ -5,7 +5,6 @@ import NotFound from '../pages/NotFound';
 import { Login, Register } from '../pages/auth';
 
 import Survey from '../components/Inscription/Survey';
-import { Inscription } from '../components';
 
 export interface RouteProps {
     component: React.ComponentType;
@@ -31,7 +30,7 @@ const routes = [
         withouFooter: true,
     },
     {
-        path: '/register',
+        path: '/inscription',
         component: Register,
     },
     {
@@ -41,12 +40,6 @@ const routes = [
         withouFooter: true,
     },
 
-    {
-        path: '/inscription',
-        component: Inscription,
-        withoutHeade: true,
-        withouFooter: true,
-    },
     {
         path: '/admin',
         component: Home,

@@ -2,7 +2,6 @@ import Button from './Button';
 import Stepper from './Stepper';
 import Icon from './Icon';
 import Header from './Header';
-import Inscription from './Inscription';
 import Section from './Section';
 import Input from './Input';
 
@@ -15,7 +14,6 @@ export {
     Icon,
     Stepper,
     Input,
-    Inscription,
     Header,
     OurValue,
     Section,

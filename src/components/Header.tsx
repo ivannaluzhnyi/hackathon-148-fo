@@ -86,7 +86,9 @@ const Header: React.FC<HeaderProps> = props => {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={() => handleRedirect('register')}
+                                    onClick={() =>
+                                        handleRedirect('inscription')
+                                    }
                                 >
                                     S'incrire
                                 </Button>

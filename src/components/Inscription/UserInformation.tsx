@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Grid, TextField, CssBaseline, makeStyles } from '@material-ui/core';
 
 import Alert from '@material-ui/lab/Alert';
-import { ValidateButton } from '.';
+import ValidateButton from './ValidateButton';
 
 const Form = styled.form`
     width: 80%;
