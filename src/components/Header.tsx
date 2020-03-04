@@ -37,7 +37,7 @@ const StyledSection = styled.section`
         &:nth-child(1) {
             margin-right: 10px;
         }
-}
+    }
 `;
 
 export interface HeaderProps {}
@@ -51,7 +51,6 @@ const Header: React.FC<HeaderProps> = props => {
     )
         ? true
         : false;
-    // location.pathname === '/login' || location.pathname === '/register';
 
     const handleRedirect = (page: string) => {
         history.push(`/${page}`);

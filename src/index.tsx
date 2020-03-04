@@ -6,9 +6,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { StylesProvider } from '@material-ui/core';
 
+import './index.css';
+import GlobalStyles from './fonts/fonts';
+
 render(
     <Provider store={store}>
         <StylesProvider injectFirst>
+            <GlobalStyles />
             <App />
         </StylesProvider>
     </Provider>,

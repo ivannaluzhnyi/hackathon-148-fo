@@ -90,5 +90,161 @@
                 }
             ]
         }
-    ]
+    ],
+
+    "categoriesOptions": [
+        {
+            "id": "front_end_developer",
+            "value": "front_end_developer",
+            "label": "Developpeu Web Front-end"
+        },
+
+        {
+            "id": "back_end_developer",
+            "value": "back_end_developer",
+            "label": "Developpeu Web Bakc-end"
+        },
+        {
+            "id": "ux_designers",
+            "value": "ux_designers",
+            "label": "UX designers"
+        }
+    ],
+
+    "levelOfExpirience": [
+        {
+            "id": "junior",
+            "value": "junior",
+            "label": "Junior (0-2 ans)"
+        },
+        {
+            "id": "intermediary",
+            "value": "intermediary",
+            "label": "Intermédiaire (2-5 ans)"
+        },
+        {
+            "id": "senior",
+            "value": "senior",
+            "label": "Senior (5+ ans)"
+        }
+    ],
+
+    "skillsOutilsOptions": {
+        "back_end_developer": [
+            {
+                "id": "php",
+                "value": "php",
+                "label": "PHP"
+            },
+            {
+                "id": "javascript",
+                "value": "javascript",
+                "label": "Javascript"
+            },
+            {
+                "id": "nodejs",
+                "value": "nodejs",
+                "label": "Node.js"
+            }
+        ],
+
+        "front_end_developer": [
+            {
+                "id": "reactjs",
+                "value": "reactjs",
+                "label": "React.js"
+            },
+            {
+                "id": "html5",
+                "value": "html5",
+                "label": "HTML5"
+            }
+        ],
+        "ux_designers": [
+            {
+                "id": "sketch",
+                "value": "sketch",
+                "label": "Sketch"
+            },
+            {
+                "id": "balsamiq",
+                "value": "balsamiq",
+                "label": "Balsamiq"
+            }
+        ]
+    },
+    "typeUser": [
+        {
+            "id": "freelance",
+            "value": "freelance",
+            "label": "Freelance"
+        },
+        {
+            "id": "microservices",
+            "value": "microservices",
+            "label": "Microservices"
+        }
+    ],
+
+    "sectorsList": [
+        [
+            {
+                "label": "Conseil",
+                "value": "council",
+                "id": "council"
+            },
+            {
+                "label": "Création",
+                "value": "creation",
+                "id": "creation"
+            },
+            {
+                "label": "Application",
+                "value": "application",
+                "id": "application"
+            }
+        ],
+        [
+            {
+                "label": "Web",
+                "value": "web",
+                "id": "web"
+            },
+            {
+                "label": "Event",
+                "value": "event",
+                "id": "event"
+            },
+            {
+                "label": "Buzz",
+                "value": "buzz",
+                "id": "buzz"
+            }
+        ]
+    ],
+
+    "sectoreCategoryOptions": {
+        "council": [
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            },
+            {
+                "id": "lol",
+                "value": "ollo",
+                "label": "lol"
+            }
+        ]
+    }
 }

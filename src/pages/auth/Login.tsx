@@ -4,27 +4,25 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { RootState } from 'Types';
-import { Grid, Link } from '@material-ui/core';
-import UiInput from '@material-ui/core/Input';
-import { FormControl, InputLabel } from '@material-ui/core';
+import {
+    Grid,
+    Link,
+    TextField,
+    FormControl,
+    makeStyles,
+    CssBaseline,
+    Box,
+    Typography,
+    Paper,
+} from '@material-ui/core';
 import { fetchLoginAsync } from '../../actions/auth.actions';
 import { Button, Icon } from '../../components';
-import { EResource } from '../../utils/resources';
-import { useHistory } from 'react-router-dom';
+import resources, { EResource } from '../../utils/resources';
 
 export interface LoginProps {
     email: string;
     password: string;
 }
-
-const Wrapper = styled(Grid)`
-    height: 100%;
-`;
-
-const LeftBlock = styled(Grid)``;
-const RightBlock = styled(Grid)`
-    background-color: #e8e8e8;
-`;
 
 const LogoBlock = styled.div`
     display: flex;
@@ -32,12 +30,10 @@ const LogoBlock = styled.div`
     margin-top: 40px;
 `;
 
-const Title = styled.h1``;
-
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 65%;
 
     & > div {
         margin: 15px 0;
@@ -56,16 +52,45 @@ const CustomLink = styled(Link)`
     text-decoration: underline;
 `;
 
-const TextInscription = styled.h3`
-    margin: 100px;
-`;
+const useStyles = makeStyles(theme => ({
+    root: {
+        height: '100vh',
+    },
+    image: {
+        backgroundImage: `url(${resources['ic-bg-connexion']})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundColor:
+            theme.palette.type === 'dark'
+                ? theme.palette.grey[900]
+                : theme.palette.grey[50],
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    },
+    paper: {
+        margin: theme.spacing(8, 4),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+}));
 
 type Props = ReturnType<typeof mapStateToProps> & typeof dispatchProps;
 
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+                ADW - 148
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
+
 const Login: React.FC<Props> = ({ loginDispatch }) => {
     const { register, handleSubmit } = useForm();
-
-    const history = useHistory();
 
     const onSubmit = (data: LoginProps) => {
         console.log(data);
@@ -77,12 +102,13 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
     const renderForm = () => (
         <Form onSubmit={handleSubmit(onSubmit as any)}>
             <FormControl>
-                <InputLabel htmlFor="component-simple"> Mail*</InputLabel>
-                <UiInput
-                    id="component-simple"
+                <TextField
+                    required
+                    label="Mail"
+                    variant="outlined"
                     name={'email'}
-                    type={'email'}
                     autoComplete="email"
+                    type={'email'}
                     inputRef={register({
                         required: true,
                         pattern: /^\S+@\S+$/i,
@@ -90,11 +116,10 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
                 />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="component-simple">
-                    Mot de passe*
-                </InputLabel>
-                <UiInput
-                    id="component-simple"
+                <TextField
+                    required
+                    label="Mot de passe"
+                    variant="outlined"
                     name={'password'}
                     type={'password'}
                     inputRef={register({ required: true })}
@@ -107,40 +132,42 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
                     </Grid>
                 </Grid>
             </FormControl>
-            <SignInBtn type="submit" variant="contained">
+            <SignInBtn color="primary" type="submit" variant="contained">
                 Se connecter
             </SignInBtn>
         </Form>
     );
-
+    const classes = useStyles();
     return (
-        <Wrapper container alignItems="stretch">
-            <Grid item md={7}>
-                <LeftBlock
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                >
+        <Grid container component="main" className={classes.root}>
+            <CssBaseline />
+
+            <Grid
+                item
+                xs={12}
+                sm={8}
+                md={5}
+                component={Paper}
+                elevation={6}
+                square
+            >
+                <div className={classes.paper}>
                     <LogoBlock>
                         <Icon w={150} type={EResource.LOGO_148} />
                     </LogoBlock>
 
-                    <Title>Me conecter</Title>
-
+                    <Typography component="h1" variant="h5">
+                        Sign in
+                    </Typography>
                     {renderForm()}
 
-                    <TextInscription>
-                        Pas encore membre Malt ?{' '}
-                        <CustomLink onClick={() => history.push('/register')}>
-                            Inscrivez-vous
-                        </CustomLink>
-                    </TextInscription>
-                </LeftBlock>
+                    <Box mt={5}>
+                        <Copyright />
+                    </Box>
+                </div>
             </Grid>
-
-            <RightBlock item md={5}></RightBlock>
-        </Wrapper>
+            <Grid item xs={false} sm={4} md={7} className={classes.image} />
+        </Grid>
     );
 };
 

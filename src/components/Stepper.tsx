@@ -4,10 +4,6 @@ import UiStepper from '@material-ui/core/Stepper';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { StepConnector, StepIconProps } from '@material-ui/core';
 
-import SettingsIcon from '@material-ui/icons/Settings';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
-
 import cls from 'classnames';
 
 import Step from '@material-ui/core/Step';
@@ -20,13 +16,13 @@ const ColorlibConnector = withStyles({
     active: {
         '& $line': {
             backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+                'linear-gradient( 95deg,#FDC543 0%,#FDC543 50%,#FDC543 100%)',
         },
     },
     completed: {
         '& $line': {
             backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+                'linear-gradient( 95deg,#FDC543 0%,#FDC543 50%,#FDC543 100%)',
         },
     },
     line: {
@@ -48,27 +44,25 @@ const useColorlibStepIconStyles = makeStyles({
         borderRadius: '50%',
         justifyContent: 'center',
         alignItems: 'center',
+        fontSize: '18px',
     },
     active: {
-        backgroundImage:
-            'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+        backgroundColor: '#fff',
+        color: '#FDC543',
+        fontSize: '18px',
+        border: 'solid 3px #FDC543 ',
         boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
     },
     completed: {
+        fontSize: '18px',
         backgroundImage:
-            'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+            'linear-gradient( 136deg, #FDC543 100%, #FDC543 100%, #FDC543 100%)',
     },
 });
 
 function ColorlibStepIcon(props: StepIconProps) {
     const classes = useColorlibStepIconStyles();
     const { active, completed } = props;
-
-    const icons: { [index: string]: React.ReactElement } = {
-        1: <SettingsIcon />,
-        2: <GroupAddIcon />,
-        3: <VideoLabelIcon />,
-    };
 
     return (
         <div
@@ -77,7 +71,7 @@ function ColorlibStepIcon(props: StepIconProps) {
                 [classes.completed]: completed,
             })}
         >
-            {icons[String(props.icon)]}
+            {String(props.icon)}
         </div>
     );
 }
@@ -86,19 +80,21 @@ const steps = ['First ', 'Second', 'Coll nan ?'];
 
 export interface StepperProps {
     activeStep: number;
+    className?: string;
 }
 
-const Stepper: React.FC<StepperProps> = ({ activeStep }) => {
+const Stepper: React.FC<StepperProps> = ({ activeStep, className }) => {
     return (
         <UiStepper
             alternativeLabel
             activeStep={activeStep}
             connector={<ColorlibConnector />}
+            className={className}
         >
             {steps.map(label => (
                 <Step key={label}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
-                        {label}
+                        <p />
                     </StepLabel>
                 </Step>
             ))}

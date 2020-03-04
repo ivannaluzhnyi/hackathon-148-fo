@@ -5,6 +5,7 @@ import NotFound from '../pages/NotFound';
 import { Login, Register } from '../pages/auth';
 
 import Survey from '../components/Inscription/Survey';
+import { Inscription } from '../components';
 
 export interface RouteProps {
     component: React.ComponentType;
@@ -36,6 +37,13 @@ const routes = [
     {
         path: '/survey',
         component: Survey,
+        withoutHeade: true,
+        withouFooter: true,
+    },
+
+    {
+        path: '/inscription',
+        component: Inscription,
         withoutHeade: true,
         withouFooter: true,
     },
