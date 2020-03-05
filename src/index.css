@@ -11,3 +11,7 @@
 .login-bg {
     height: 100%;
 }
+
+.MuiAppBar-root {
+    box-shadow: none;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { routes, privateRoutes } from './router/routes';
 import PrivateRoute from './router/PrivateRoute';
@@ -25,7 +25,7 @@ function App() {
     return (
         <>
             <Router>
-                <Header />
+                {/* {window.location.pathname !== '/' && <Header />} */}
                 <GlobalStyles />
                 <Switch>
                     {PrivateContent()}

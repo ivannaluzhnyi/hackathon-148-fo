@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -11,8 +11,10 @@ import Slide from '@material-ui/core/Slide';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import Button from './Button';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Container } from '@material-ui/core';
 import { routes } from '../router/routes';
+import Icon from './Icon';
+import { EResource } from '../utils/resources';
 
 interface Props {
     window?: () => Window;
@@ -34,10 +36,35 @@ const StyledSection = styled.section`
     margin-left: auto;
 
     & > button {
-        &:nth-child(1) {
+        &:nth-child(3) {
             margin-right: 10px;
         }
     }
+`;
+
+const MainBtn = styled(Button)`
+    width: 180px;
+    padding: 12px;
+`;
+
+const StyledAppBar = styled(AppBar)`
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    /* background: linear-gradient(35deg, #427bfc 0%, #6e9bfd 100%) 0% 0% no-repeat
+        padding-box; */
+
+    opacity: 1;
+`;
+
+const StyledToolbar = styled(Toolbar)`
+    padding: 0;
+`;
+
+const StyledLink = styled(Link)`
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
 `;
 
 export interface HeaderProps {}
@@ -60,44 +87,58 @@ const Header: React.FC<HeaderProps> = props => {
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...(props as any)}>
-                <AppBar color="transparent">
-                    <Toolbar>
-                        {!isMatched ? (
-                            <Typography
-                                variant="h6"
-                                onClick={() => handleRedirect('')}
-                            >
-                                ADW - 148
-                            </Typography>
-                        ) : (
-                            <IconButton onClick={() => handleRedirect('')}>
-                                <ArrowBackIosIcon />
-                            </IconButton>
-                        )}
-
-                        {!isMatched && (
-                            <StyledSection>
-                                <Button
-                                    variant="outlined"
-                                    onClick={() => handleRedirect('login')}
+                <StyledAppBar>
+                    <Container>
+                        <StyledToolbar>
+                            {!isMatched ? (
+                                <Typography
+                                    variant="h6"
+                                    onClick={() => handleRedirect('')}
                                 >
-                                    Se connecter
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() =>
-                                        handleRedirect('inscription')
-                                    }
-                                >
-                                    S'incrire
-                                </Button>
-                            </StyledSection>
-                        )}
+                                    <Icon
+                                        h={100}
+                                        w={130}
+                                        type={EResource.ADW_LOGO_WHITE}
+                                    />
+                                </Typography>
+                            ) : (
+                                <IconButton onClick={() => handleRedirect('')}>
+                                    <ArrowBackIosIcon />
+                                </IconButton>
+                            )}
 
-                        <div></div>
-                    </Toolbar>
-                </AppBar>
+                            {!isMatched && (
+                                <StyledSection>
+                                    <StyledLink to={'/'}>
+                                        Qui sommes-nous
+                                    </StyledLink>
+                                    <StyledLink to={'/'}>
+                                        Comment ça marche
+                                    </StyledLink>
+
+                                    <MainBtn
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={() =>
+                                            handleRedirect('inscription')
+                                        }
+                                    >
+                                        S'incrire
+                                    </MainBtn>
+
+                                    <MainBtn
+                                        variant="outlined"
+                                        onClick={() => handleRedirect('login')}
+                                    >
+                                        Se connecter
+                                    </MainBtn>
+                                </StyledSection>
+                            )}
+
+                            <div></div>
+                        </StyledToolbar>
+                    </Container>
+                </StyledAppBar>
             </HideOnScroll>
             <Toolbar />
         </React.Fragment>
