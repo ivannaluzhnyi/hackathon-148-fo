@@ -96,18 +96,53 @@
         {
             "id": "front_end_developer",
             "value": "front_end_developer",
-            "label": "Developpeu Web Front-end"
+            "label": "Developpeur Web Front-end"
         },
 
         {
             "id": "back_end_developer",
             "value": "back_end_developer",
-            "label": "Developpeu Web Bakc-end"
+            "label": "Developpeur Web Back-end"
         },
         {
             "id": "ux_designers",
             "value": "ux_designers",
-            "label": "UX designers"
+            "label": "UX Designers"
+        },
+        {
+            "id": "ui_designers",
+            "value": "ui_designers",
+            "label": "UI Designers"
+        },
+        {
+            "id": "product_manager",
+            "value": "product_manager",
+            "label": "Product Manager"
+        },
+        {
+            "id": "mobile_dev",
+            "value": "mobile_dev",
+            "label": "Développeur Mobile"
+        },
+        {
+            "id": "admin_system",
+            "value": "admin_system",
+            "label": "Administrateur Systèmes et Réseaux"
+        },
+        {
+            "id": "motion_designer",
+            "value": "amotion_designer",
+            "label": "Motion Designer"
+        },
+        {
+            "id": "data_scientist",
+            "value": "data_scientist",
+            "label": "Data Scientist"
+        },
+        {
+            "id": "ergonome",
+            "value": "ergonome",
+            "label": "Ergonome"
         }
     ],
 
@@ -158,6 +193,11 @@
                 "id": "html5",
                 "value": "html5",
                 "label": "HTML5"
+            },
+            {
+                "id": "css3",
+                "value": "css3",
+                "label": "CSS3"
             }
         ],
         "ux_designers": [
@@ -170,6 +210,48 @@
                 "id": "balsamiq",
                 "value": "balsamiq",
                 "label": "Balsamiq"
+            },
+            {
+                "id": "adobe_xd",
+                "value": "adobe_xd",
+                "label": "Adobe XD"
+            }
+        ],
+        "ui_designers": [
+            {
+                "id": "sketch",
+                "value": "sketch",
+                "label": "Sketch"
+            },
+            {
+                "id": "figma",
+                "value": "figma",
+                "label": "Figma"
+            },
+            {
+                "id": "balsamiq",
+                "value": "balsamiq",
+                "label": "Balsamiq"
+            },
+            {
+                "id": "adobe_xd",
+                "value": "adobe_xd",
+                "label": "Adobe XD"
+            },
+            {
+                "id": "adobe_ps",
+                "value": "adobe_ps",
+                "label": "Adobe Photoshop"
+            },
+            {
+                "id": "adobe_ai",
+                "value": "adobe_ai",
+                "label": "Adobe Illustrator"
+            },
+            {
+                "id": "adobe_id",
+                "value": "adobe_id",
+                "label": "Adobe InDesign"
             }
         ]
     },
@@ -226,24 +308,144 @@
     "sectoreCategoryOptions": {
         "council": [
             {
-                "id": "lol",
-                "value": "ollo",
-                "label": "lol"
+                "id": "ux_design",
+                "value": "ux_design",
+                "label": "UX Design"
             },
             {
-                "id": "lol",
-                "value": "ollo",
-                "label": "lol"
+                "id": "ergonomie",
+                "value": "ergonomie",
+                "label": "Ergonomie & Interfaces"
             },
             {
-                "id": "lol",
-                "value": "ollo",
-                "label": "lol"
+                "id": "gestion",
+                "value": "gestion",
+                "label": "Gestion de projet"
             },
             {
-                "id": "lol",
-                "value": "ollo",
-                "label": "lol"
+                "id": "seo",
+                "value": "seo",
+                "label": "Search Engine Marketing (SEO, SEA, SMO)"
+            }
+        ],
+        "creation": [
+            {
+                "id": "da",
+                "value": "da",
+                "label": "Direction Artistique"
+            },
+            {
+                "id": "webdesign",
+                "value": "webdesign",
+                "label": "Web design"
+            },
+            {
+                "id": "uidesign",
+                "value": "uidesign",
+                "label": "UI Design"
+            },
+            {
+                "id": "illustration",
+                "value": "illustration",
+                "label": "Illustration, rough"
+            },
+            {
+                "id": "print",
+                "value": "print",
+                "label": "Print"
+            }
+        ],
+        "application": [
+            {
+                "id": "api",
+                "value": "api",
+                "label": "Développement Applicatif Multicanal (API)"
+            },
+            {
+                "id": "maintenance",
+                "value": "maintenance",
+                "label": "Maintenance, suivi et optimisation"
+            },
+            {
+                "id": "reseaux",
+                "value": "reseaux",
+                "label": "Réseaux sociaux"
+            }
+        ],
+        "web": [
+            {
+                "id": "dev",
+                "value": "dev",
+                "label": "Développement web"
+            },
+            {
+                "id": "cms",
+                "value": "cms",
+                "label": "CMS, e-commerce"
+            },
+            {
+                "id": "serveur",
+                "value": "serveur",
+                "label": "Production, serveur"
+            },
+            {
+                "id": "gestion_technique",
+                "value": "gestion_technique",
+                "label": "Gestion de projet technique"
+            }
+        ],
+        "event": [
+            {
+                "id": "gestion_evenements",
+                "value": "gestion_evenements",
+                "label": "Gestion d'événements"
+            },
+            {
+                "id": "stands",
+                "value": "stands",
+                "label": "Stands, salons"
+            },
+            {
+                "id": "concepts",
+                "value": "concepts",
+                "label": "Création de concepts"
+            },
+            {
+                "id": "conference",
+                "value": "conference",
+                "label": "Conférences, réunions d'influenceurs"
+            },
+            {
+                "id": "diner",
+                "value": "diner",
+                "label": "Diner, soirée"
+            },
+            {
+                "id": "road",
+                "value": "road",
+                "label": "Road Show"
+            }
+        ],
+        "buzz": [
+            {
+                "id": "referencement",
+                "value": "referencement",
+                "label": "Référencement"
+            },
+            {
+                "id": "cm",
+                "value": "cm",
+                "label": "Community manager"
+            },
+            {
+                "id": "analyse_resultats",
+                "value": "analyse_resultats",
+                "label": "Analyse de résultats"
+            },
+            {
+                "id": "buzz_marketing",
+                "value": "buzz_marketing",
+                "label": "Buzz, marketing viral"
             }
         ]
     }
