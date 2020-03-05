@@ -56,8 +56,8 @@ const LvlSkillItem = styled(Grid)`
     text-align: center;
 `;
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const icon = <CheckBoxOutlineBlankIcon color="primary" fontSize="small" />;
+const checkedIcon = <CheckBoxIcon color="primary" fontSize="small" />;
 
 const useStyleProffesion = makeStyles({
     select: {

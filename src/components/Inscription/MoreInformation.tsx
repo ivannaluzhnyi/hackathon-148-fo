@@ -74,13 +74,10 @@ const MoreInformation: React.FC<{
                 <Grid item>
                     <FormControlLabel
                         inputRef={register({
-                            validate: (value: string) => {
-                                console.log('value => ', value);
-
-                                return value
+                            validate: (value: string) =>
+                                value
                                     ? value
-                                    : 'Veuillez accepter les Conditions d’Utilisation et la Politique de confidentialité des Agents du web.';
-                            },
+                                    : 'Veuillez accepter les Conditions d’Utilisation et la Politique de confidentialité des Agents du web.',
                         })}
                         name="validate_condition"
                         control={<Checkbox color="primary" />}

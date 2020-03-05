@@ -20,6 +20,9 @@ import {
 import { sendInscriptionAsync } from '../../actions/inscription.actions';
 import { RootState } from 'Types';
 import { connect } from 'react-redux';
+import AuthService from '../../services/auth-service';
+import { useHistory } from 'react-router-dom';
+import { getPathnameByUser } from '../../utils/helper';
 
 const StyledStepper = styled(Stepper)`
     width: 80%;
@@ -32,7 +35,7 @@ const LogoBlock = styled.div`
 
 const Logo = () => (
     <LogoBlock>
-        <Icon w={150} type={EResource.LOGO_148} />
+        <Icon w={150} h={170} type={EResource.ADW_LOGO_BALCK} />
     </LogoBlock>
 );
 
@@ -97,14 +100,16 @@ export type RegisterProps = {} & ReturnType<typeof mapStateToProps> &
 
 const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
     const classes = useStyles();
-    const [activeStep, setStep] = useState<number>(0);
+    const history = useHistory();
     const [currentScreenIndex, setIndex] = useState<number>(0);
 
-    useEffect(() => {
-        setStep(1);
-    }, []);
-
     const [inscriptionData, setData] = useState<any>({});
+
+    useEffect(() => {
+        if (AuthService.isAuthenticated()) {
+            history.push(getPathnameByUser() || '/client-space');
+        }
+    }, [AuthService.isAuthenticated()]);
 
     const handelValidateScreen = (data: any) => {
         setData({
@@ -147,7 +152,9 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                                 S'inscrir
                             </Typography>
 
-                            <StyledStepper activeStep={activeStep} />
+                            <StyledStepper
+                                activeStep={currentScreenIndex - 1}
+                            />
                         </>
                     )}
 

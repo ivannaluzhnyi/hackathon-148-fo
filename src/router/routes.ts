@@ -5,6 +5,8 @@ import NotFound from '../pages/NotFound';
 import { Login, Register } from '../pages/auth';
 
 import Survey from '../components/Inscription/Survey';
+import Main from '../pages/client-space/Main';
+import Account from '../components/account';
 
 export interface RouteProps {
     component: React.ComponentType;
@@ -31,6 +33,7 @@ const routes = [
     {
         path: '/inscription',
         component: Register,
+        withoutHeade: true,
     },
     {
         path: '/survey',
@@ -49,6 +52,24 @@ const privateRoutes = [
     {
         path: '/admin',
         component: Home,
+    },
+
+    {
+        path: '/client-space',
+        component: Main,
+    },
+
+    {
+        path: '/client-space/dashboard',
+        component: Account,
+    },
+    {
+        path: '/client-space/settings',
+        component: Account,
+    },
+    {
+        path: '/client-space/account',
+        component: Account,
     },
 ];
 

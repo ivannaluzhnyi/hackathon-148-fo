@@ -1,5 +1,6 @@
 import wording from './wording.json';
 import { Select } from 'Types';
+import AuthService from '../services/auth-service';
 
 const removeDuplicates = (array: any[], key: string) => {
     return array.reduce((accumulator, element) => {
@@ -28,4 +29,18 @@ const getOptionSkills = (categories: Select[], selectedSkills: Select[]) => {
     );
 };
 
-export { getOptionSkills, removeDuplicates };
+const getPathnameByUser = () => {
+    const ut = AuthService.getUserType();
+    switch (ut) {
+        case 'admin':
+            return 'admin-space';
+
+        case 'customer':
+            return 'client-space';
+
+        default:
+            return 'client-space';
+    }
+};
+
+export { getOptionSkills, removeDuplicates, getPathnameByUser };

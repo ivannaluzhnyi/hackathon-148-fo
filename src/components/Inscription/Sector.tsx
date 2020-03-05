@@ -37,8 +37,8 @@ const SelectGridItem = styled(Grid)`
     padding: 0 20px;
 `;
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const icon = <CheckBoxOutlineBlankIcon color="primary" fontSize="small" />;
+const checkedIcon = <CheckBoxIcon color="primary" fontSize="small" />;
 
 const SectorTextItem: React.FC<any> = props => {
     const StyledDiv = styled.div`
@@ -86,8 +86,9 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                 Sélectionnez vos secteurs corespondant à votre domaine
                 d'acticvité.
             </h4>
-            {wording.sectorsList.map(array => (
+            {wording.sectorsList.map((array, idx) => (
                 <Wrapper
+                    key={idx}
                     container
                     direction="row"
                     justify="space-between"
@@ -137,6 +138,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                                                     checkedIcon={checkedIcon}
                                                     style={{ marginRight: 8 }}
                                                     checked={selected}
+                                                    color="primary"
                                                 />
                                                 {option.label}
                                             </React.Fragment>

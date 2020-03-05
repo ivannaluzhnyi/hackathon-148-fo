@@ -8,7 +8,6 @@ const apiRequest = <T>({
     path,
     method,
     body,
-    isSubscription,
     requestIsArray,
 }: any): Observable<T> => {
     const modifiedBody = !requestIsArray

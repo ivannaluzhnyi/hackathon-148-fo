@@ -9,6 +9,7 @@ import {
     SEND_INSCRIPTION_SUCCESS,
     SEND_INSCRIPTION_FAILURE,
 } from './actionTypes';
+import AuthService from '../services/auth-service';
 
 const sendInscriptionAsync = createAsyncAction(
     SEND_INSCRIPTION_REQUEST,
@@ -30,7 +31,13 @@ const mapPostInscription = (action: RootAction, { apiRequest }: Services) => {
         }),
 
         catchError(error => {
-            return of(sendInscriptionAsync.failure(error));
+            AuthService.fakeAuthentification('customer');
+            return of(
+                sendInscriptionAsync.failure({
+                    error,
+                    payload,
+                }),
+            );
         }),
     );
 };
