@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
@@ -9,6 +9,7 @@ import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Icon from '../../../../Icon';
 import { EResource } from '../../../../../utils/resources';
+import AuthService from '../../../../../services/auth-service';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles(theme => ({
 
 const Topbar = (props: any) => {
     const { className, onSidebarOpen, ...rest } = props;
+
+    const history = useHistory();
 
     const classes = useStyles();
 
@@ -49,6 +52,10 @@ const Topbar = (props: any) => {
                         </Badge>
                     </IconButton>
                     <IconButton
+                        onClick={() => {
+                            AuthService.logout();
+                            history.push('/login');
+                        }}
                         className={classes.signOutButton}
                         color="inherit"
                     >

@@ -129,6 +129,7 @@ const Header: React.FC<HeaderProps> = props => {
 
                                     <MainBtn
                                         variant="outlined"
+                                        id="outlined-header"
                                         onClick={() => handleRedirect('login')}
                                     >
                                         Se connecter

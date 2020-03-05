@@ -11,7 +11,7 @@ import {
     Toolbar,
     IconButton,
 } from '@material-ui/core';
-import { Stepper, Icon, Header } from '../../components';
+import { Stepper, Icon } from '../../components';
 import resources, { EResource } from '../../utils/resources';
 import {
     Proffesion,
@@ -114,11 +114,21 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
 
     const [inscriptionData, setData] = useState<any>({});
 
+    const checked = AuthService.isAuthenticated();
+
     useEffect(() => {
-        if (AuthService.isAuthenticated()) {
+        if (checked) {
             history.push(getPathnameByUser() || '/client-space');
         }
-    }, [AuthService.isAuthenticated()]);
+    }, [checked, history]);
+
+    useEffect(() => {
+        if (currentScreenIndex === 5) {
+            sendInscriptionDispatch(inscriptionData);
+
+            console.log('inscriptionData= > ', inscriptionData);
+        }
+    }, [currentScreenIndex, sendInscriptionDispatch, inscriptionData]);
 
     const handelValidateScreen = (data: any) => {
         setData({
@@ -127,10 +137,6 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
         });
 
         setIndex(currentScreenIndex + 1);
-
-        if (currentScreenIndex === 4) {
-            sendInscriptionDispatch(inscriptionData);
-        }
     };
 
     const renderScreen = () => {
@@ -157,29 +163,34 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                         <Toolbar>
                             {currentScreenIndex !== 0 &&
                                 currentScreenIndex !== 5 && (
-                                    <IconButton
+                                    <div
                                         onClick={() =>
                                             setIndex(currentScreenIndex - 1)
                                         }
                                     >
-                                        <ArrowBackIosIcon />
-                                    </IconButton>
+                                        <IconButton>
+                                            <ArrowBackIosIcon />
+                                        </IconButton>
+                                        <span className="btn">Retoure</span>
+                                    </div>
                                 )}
                         </Toolbar>
                     </AppBar>
                     <Logo />
 
-                    {currentScreenIndex !== 0 && (
-                        <>
-                            <Typography component="h1" variant="h5">
-                                S'inscrir
-                            </Typography>
+                    {currentScreenIndex !== 0 &&
+                        currentScreenIndex !== 5 &&
+                        currentScreenIndex !== 4 && (
+                            <>
+                                <Typography component="h1" variant="h5">
+                                    S'inscrir
+                                </Typography>
 
-                            <StyledStepper
-                                activeStep={currentScreenIndex - 1}
-                            />
-                        </>
-                    )}
+                                <StyledStepper
+                                    activeStep={currentScreenIndex - 1}
+                                />
+                            </>
+                        )}
 
                     {renderScreen()}
                 </div>

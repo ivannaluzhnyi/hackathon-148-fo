@@ -16,6 +16,10 @@
     box-shadow: none;
 }
 
-.MuiButton-outlined {
+#outlined-header {
     border-color: white;
+}
+
+.btn {
+    cursor: pointer;
 }

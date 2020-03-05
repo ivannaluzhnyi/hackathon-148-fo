@@ -1,9 +1,8 @@
 import React from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { routes, privateRoutes } from './router/routes';
 import PrivateRoute from './router/PrivateRoute';
-import { Header } from './components';
 import GlobalStyles from './fonts/fonts';
 
 const PublicContent = () =>
@@ -25,13 +24,11 @@ function App() {
     return (
         <>
             <Router>
-                {/* {window.location.pathname !== '/' && <Header />} */}
                 <GlobalStyles />
                 <Switch>
                     {PrivateContent()}
                     {PublicContent()}
                 </Switch>
-                <footer>footer</footer>
             </Router>
         </>
     );

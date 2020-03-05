@@ -18,7 +18,7 @@ import {
 import { fetchLoginAsync } from '../../actions/auth.actions';
 import { Button, Icon } from '../../components';
 import resources, { EResource } from '../../utils/resources';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import AuthService from '../../services/auth-service';
 import { getPathnameByUser } from '../../utils/helper';
 
@@ -29,8 +29,8 @@ export interface LoginProps {
 
 const LogoBlock = styled.div`
     display: flex;
-
     margin-top: 40px;
+    cursor: pointer;
 `;
 
 const Form = styled.form`
@@ -54,6 +54,16 @@ const CustomLink = styled(Link)`
     color: black;
     text-decoration: underline;
 `;
+
+const Logo = () => {
+    const history = useHistory();
+
+    return (
+        <LogoBlock onClick={() => history.push('/')}>
+            <Icon w={180} h={190} type={EResource.ADW_LOGO_BALCK} />
+        </LogoBlock>
+    );
+};
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -164,15 +174,11 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
                 square
             >
                 <div className={classes.paper}>
-                    <LogoBlock>
-                        <Icon w={150} h={170} type={EResource.ADW_LOGO_BALCK} />
-                    </LogoBlock>
-
+                    <Logo />
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
                     {renderForm()}
-
                     <Box mt={5}>
                         <Copyright />
                     </Box>

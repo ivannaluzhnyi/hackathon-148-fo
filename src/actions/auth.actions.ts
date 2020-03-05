@@ -1,6 +1,6 @@
 import { Epic } from 'redux-observable';
-import { of, forkJoin } from 'rxjs';
-import { mergeMap, catchError, filter, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { mergeMap, catchError, filter } from 'rxjs/operators';
 import {
     createAsyncAction,
     createAction,

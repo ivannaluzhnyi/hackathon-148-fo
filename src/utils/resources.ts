@@ -6,6 +6,8 @@ import AdwLogoBlack from '../assets/icons/adw-logo-black.svg';
 
 import IconBgConnexion from '../assets/icons/bg-connexion.svg';
 
+import Quote from '../assets/icons/quote.svg';
+
 import Bg1OnePage from '../assets/icons/bg-1-onepage.svg';
 
 export enum EResource {
@@ -15,6 +17,7 @@ export enum EResource {
     ADW_LOGO_WHITE = 'adw-logo-white',
     ADW_LOGO_BALCK = 'adw-logo-black',
     BG_1_ONEPAGE = 'bg-1-onepage',
+    Quote = 'ic-quote',
 }
 
 export interface Resources {
@@ -27,6 +30,6 @@ export default {
     'adw-logo-white': AdwLogoWhite,
     'adw-logo-black': AdwLogoBlack,
     'bg-1-onepage': Bg1OnePage,
-
+    'ic-quote': Quote,
     'ic-bg-connexion': IconBgConnexion,
 };

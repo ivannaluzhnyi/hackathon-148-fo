@@ -87,7 +87,7 @@ const CompletedProject = () => {
     return (
         <Section>
             <Container>
-                <H>Les projets réaliés par les agents du web</H>
+                <H>Les projets réalisés par les Agents du Web</H>
                 <Grid
                     container
                     direction="row"
