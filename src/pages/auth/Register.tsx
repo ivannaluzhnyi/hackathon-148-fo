@@ -11,7 +11,7 @@ import {
     Toolbar,
     IconButton,
 } from '@material-ui/core';
-import { Stepper, Icon, Header } from '../../components';
+import { Stepper, Icon } from '../../components';
 import resources, { EResource } from '../../utils/resources';
 import {
     Proffesion,
@@ -96,11 +96,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const containers = [
+    Survey, // 4
     Sector, // 0
     Proffesion, // 1
     MoreInformation, // 2
     UserInformation, // 3
-    Survey, // 4
     CustomLoader,
 ];
 
@@ -156,14 +156,18 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                     <AppBar color="transparent">
                         <Toolbar>
                             {currentScreenIndex !== 0 &&
-                                currentScreenIndex !== 5 && (
-                                    <IconButton
+                                currentScreenIndex !== 5 &&
+                                currentScreenIndex !== 4 && (
+                                    <div
                                         onClick={() =>
                                             setIndex(currentScreenIndex - 1)
                                         }
                                     >
-                                        <ArrowBackIosIcon />
-                                    </IconButton>
+                                        <IconButton>
+                                            <ArrowBackIosIcon />
+                                        </IconButton>
+                                        <span className="btn">Retoure</span>
+                                    </div>
                                 )}
                         </Toolbar>
                     </AppBar>

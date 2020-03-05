@@ -76,7 +76,7 @@ function ColorlibStepIcon(props: StepIconProps) {
     );
 }
 
-const steps = [0, 1, 2, 3];
+const steps = [0, 1, 2];
 
 export interface StepperProps {
     activeStep: number;
