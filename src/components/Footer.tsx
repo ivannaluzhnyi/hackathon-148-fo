@@ -42,6 +42,7 @@ const Center = styled.div`
 const Info = styled.div`
     & > p {
         color: white;
+        margin-right: 20px;
     }
 `;
 
