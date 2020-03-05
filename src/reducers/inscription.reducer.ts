@@ -24,6 +24,7 @@ const inscriptionReducer: Reducer<AuthState, Actions> = (
         case getType(actions.sendInscriptionAsync.failure): {
             return {
                 ...state,
+                ...action.payload.payload,
                 error: action.payload.error,
             };
         }

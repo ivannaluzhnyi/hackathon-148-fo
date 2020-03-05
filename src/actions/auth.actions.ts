@@ -44,23 +44,20 @@ const mapLobig = (action: RootAction, { apiRequest }: Services) => {
         body: payload,
     }).pipe(
         mergeMap((response: any) => {
-            console.log('reqsppnse login => ', response);
             if (response && response.token) {
                 const user: any = {};
                 if (user.token && user.accessToken) {
                     localStorage.setItem('token', user.token);
-                    localStorage.setItem('accessToken', user.accessToken);
                     const dt = String(new Date().getTime() + 1000 * 36000);
                     localStorage.setItem('expires', dt);
                 }
-
-                return of(user);
+                return of(fetchLoginAsync.success(response));
             }
-            const message = response.message || 'Une erreur est survenue';
-            return of({ error: message });
+            return of(fetchLoginAsync.failure(response));
         }),
+
         catchError(error => {
-            return of({ error: error.message });
+            return of(fetchLoginAsync.failure(error));
         }),
     );
 };
@@ -72,29 +69,7 @@ const fetchLoginEpic: Epic<RootAction, RootAction, RootState, Services> = (
 ) =>
     action$.pipe(
         filter(isActionOf(fetchLoginAsync.request)),
-        switchMap(
-            (action: RootAction) => mapLobig(action, dependency),
-            (action: RootAction, r: any) => [action, r],
-        ),
-
-        switchMap(([action, loginResponse]) => {
-            return forkJoin(of(loginResponse), of({}));
-        }),
-
-        switchMap(([loginResponse, contextResponse]) => {
-            return of(
-                fetchLoginAsync.failure({
-                    error: '',
-                }),
-            );
-        }),
-        catchError(error => {
-            return of(
-                fetchLoginAsync.failure({
-                    error: error.message,
-                }),
-            );
-        }),
+        mergeMap(action => mapLobig(action, dependency)),
     );
 
 export { fetchLoginEpic, fetchLoginAsync, resetReduxStore };

@@ -11,14 +11,19 @@ import {
 } from '@material-ui/core';
 
 import './index.css';
-import GlobalStyles from './fonts/fonts';
-
-console.log('GlobalStyles => ', GlobalStyles);
-console.log('GlobalStyles> => ', <GlobalStyles />);
 
 const theme = createMuiTheme({
     typography: {
         fontFamily: 'Open Sans, Arial',
+    },
+
+    palette: {
+        primary: {
+            main: '#030F4B',
+        },
+        secondary: {
+            main: '#FCC443',
+        },
     },
 });
 render(

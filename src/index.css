@@ -11,3 +11,11 @@
 .login-bg {
     height: 100%;
 }
+
+.MuiAppBar-root {
+    box-shadow: none;
+}
+
+.MuiButton-outlined {
+    border-color: white;
+}

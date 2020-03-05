@@ -35,10 +35,12 @@ const Wrapper = styled(Grid)`
 
 const SelectGridItem = styled(Grid)`
     padding: 0 20px;
+    /* margin: auto; */
+    width: 100%;
 `;
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const icon = <CheckBoxOutlineBlankIcon color="primary" fontSize="small" />;
+const checkedIcon = <CheckBoxIcon color="primary" fontSize="small" />;
 
 const SectorTextItem: React.FC<any> = props => {
     const StyledDiv = styled.div`
@@ -86,8 +88,9 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                 Sélectionnez vos secteurs corespondant à votre domaine
                 d'acticvité.
             </h4>
-            {wording.sectorsList.map(array => (
+            {wording.sectorsList.map((array, idx) => (
                 <Wrapper
+                    key={idx}
                     container
                     direction="row"
                     justify="space-between"
@@ -97,7 +100,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                     {array.map((st, idx) => {
                         const isActive = sector && sector.value === st.value;
                         return (
-                            <Grid key={idx} item xs={8} md={4}>
+                            <Grid key={idx} item>
                                 <GridItem
                                     onClick={() =>
                                         setSector(isActive ? undefined : st)
@@ -116,7 +119,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                         array.find(a => a.value === sector.value) !==
                             undefined && (
                             <Grid container>
-                                <SelectGridItem item xs>
+                                <SelectGridItem item xs md>
                                     <Autocomplete
                                         multiple
                                         options={
@@ -137,6 +140,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                                                     checkedIcon={checkedIcon}
                                                     style={{ marginRight: 8 }}
                                                     checked={selected}
+                                                    color="primary"
                                                 />
                                                 {option.label}
                                             </React.Fragment>

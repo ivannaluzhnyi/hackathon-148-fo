@@ -7,8 +7,11 @@ import {
     CssBaseline,
     Paper,
     Typography,
+    AppBar,
+    Toolbar,
+    IconButton,
 } from '@material-ui/core';
-import { Stepper, Icon } from '../../components';
+import { Stepper, Icon, Header } from '../../components';
 import resources, { EResource } from '../../utils/resources';
 import {
     Proffesion,
@@ -20,6 +23,10 @@ import {
 import { sendInscriptionAsync } from '../../actions/inscription.actions';
 import { RootState } from 'Types';
 import { connect } from 'react-redux';
+import AuthService from '../../services/auth-service';
+import { useHistory } from 'react-router-dom';
+import { getPathnameByUser } from '../../utils/helper';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 const StyledStepper = styled(Stepper)`
     width: 80%;
@@ -28,13 +35,18 @@ const StyledStepper = styled(Stepper)`
 const LogoBlock = styled.div`
     display: flex;
     margin-top: 10px;
+    cursor: pointer;
 `;
 
-const Logo = () => (
-    <LogoBlock>
-        <Icon w={150} type={EResource.LOGO_148} />
-    </LogoBlock>
-);
+const Logo = () => {
+    const history = useHistory();
+
+    return (
+        <LogoBlock onClick={() => history.push('/')}>
+            <Icon w={180} h={190} type={EResource.ADW_LOGO_BALCK} />
+        </LogoBlock>
+    );
+};
 
 const TitleImage = styled.h1`
     position: absolute;
@@ -97,14 +109,16 @@ export type RegisterProps = {} & ReturnType<typeof mapStateToProps> &
 
 const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
     const classes = useStyles();
-    const [activeStep, setStep] = useState<number>(0);
+    const history = useHistory();
     const [currentScreenIndex, setIndex] = useState<number>(0);
 
-    useEffect(() => {
-        setStep(1);
-    }, []);
-
     const [inscriptionData, setData] = useState<any>({});
+
+    useEffect(() => {
+        if (AuthService.isAuthenticated()) {
+            history.push(getPathnameByUser() || '/client-space');
+        }
+    }, [AuthService.isAuthenticated()]);
 
     const handelValidateScreen = (data: any) => {
         setData({
@@ -139,6 +153,20 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                 square
             >
                 <div className={classes.paper}>
+                    <AppBar color="transparent">
+                        <Toolbar>
+                            {currentScreenIndex !== 0 &&
+                                currentScreenIndex !== 5 && (
+                                    <IconButton
+                                        onClick={() =>
+                                            setIndex(currentScreenIndex - 1)
+                                        }
+                                    >
+                                        <ArrowBackIosIcon />
+                                    </IconButton>
+                                )}
+                        </Toolbar>
+                    </AppBar>
                     <Logo />
 
                     {currentScreenIndex !== 0 && (
@@ -147,7 +175,9 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                                 S'inscrir
                             </Typography>
 
-                            <StyledStepper activeStep={activeStep} />
+                            <StyledStepper
+                                activeStep={currentScreenIndex - 1}
+                            />
                         </>
                     )}
 

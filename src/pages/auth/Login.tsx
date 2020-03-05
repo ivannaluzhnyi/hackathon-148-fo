@@ -18,6 +18,9 @@ import {
 import { fetchLoginAsync } from '../../actions/auth.actions';
 import { Button, Icon } from '../../components';
 import resources, { EResource } from '../../utils/resources';
+import { Redirect } from 'react-router-dom';
+import AuthService from '../../services/auth-service';
+import { getPathnameByUser } from '../../utils/helper';
 
 export interface LoginProps {
     email: string;
@@ -138,6 +141,15 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
         </Form>
     );
     const classes = useStyles();
+
+    const isSignIn = AuthService.isAuthenticated();
+    if (isSignIn)
+        return (
+            <Redirect
+                to={{ pathname: getPathnameByUser() || '/client-space' }}
+            />
+        );
+
     return (
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
@@ -153,7 +165,7 @@ const Login: React.FC<Props> = ({ loginDispatch }) => {
             >
                 <div className={classes.paper}>
                     <LogoBlock>
-                        <Icon w={150} type={EResource.LOGO_148} />
+                        <Icon w={150} h={170} type={EResource.ADW_LOGO_BALCK} />
                     </LogoBlock>
 
                     <Typography component="h1" variant="h5">
