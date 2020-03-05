@@ -96,11 +96,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const containers = [
-    Survey, // 4
     Sector, // 0
     Proffesion, // 1
     MoreInformation, // 2
     UserInformation, // 3
+    Survey, // 4
     CustomLoader,
 ];
 
@@ -114,11 +114,13 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
 
     const [inscriptionData, setData] = useState<any>({});
 
+    const checked = AuthService.isAuthenticated();
+
     useEffect(() => {
-        if (AuthService.isAuthenticated()) {
+        if (checked) {
             history.push(getPathnameByUser() || '/client-space');
         }
-    }, [AuthService.isAuthenticated()]);
+    }, [checked, history]);
 
     const handelValidateScreen = (data: any) => {
         setData({

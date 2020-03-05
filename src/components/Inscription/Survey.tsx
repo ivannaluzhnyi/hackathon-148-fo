@@ -14,10 +14,26 @@ import ValidateButton from './ValidateButton';
 
 const Title = styled.h2`
     margin-top: 30px;
+    text-align: center;
+    margin: auto;
+    width: 280px;
+    font: Semibold 30px/41px Open Sans;
+    letter-spacing: 0;
+    color: #000000;
+    margin-bottom: 15px;
 `;
 
-const PageDescription = styled.h4`
-    width: 480px;
+const PageDescription = styled.p`
+    width: 460px;
+
+    margin: auto;
+    font-size: 12px;
+    text-align: center;
+    font: Light 14px/19px Open Sans;
+    letter-spacing: 0;
+    color: #000000;
+
+    margin-bottom: 50px;
 `;
 
 const QuestionLabel = styled.h5`
@@ -80,11 +96,11 @@ const Survey: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
 
     return (
         <Form onSubmit={handelClick}>
-            <Title>Dernière étape afin de valider votre profile</Title>
+            <Title>Dernière étape pour valider votre profil</Title>
 
             <PageDescription>
                 Nous faisons passer une fasse de test afin de valider votre
-                profile, si vous en compléter pas ce QCM vous ne pouvez pas
+                profil, si vous ne compléter pas ce QCM vous ne pourrez pas
                 valider votre candidature.
             </PageDescription>
 
