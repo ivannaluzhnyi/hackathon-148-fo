@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 
 import './index.css';
-import GlobalStyles from './fonts/fonts';
 
 const theme = createMuiTheme({
     typography: {
@@ -21,6 +20,9 @@ const theme = createMuiTheme({
     palette: {
         primary: {
             main: '#030F4B',
+        },
+        secondary: {
+            main: '#FCC443',
         },
     },
 });

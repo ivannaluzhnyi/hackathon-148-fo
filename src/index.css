@@ -15,3 +15,7 @@
 .MuiAppBar-root {
     box-shadow: none;
 }
+
+.MuiButton-outlined {
+    border-color: white;
+}

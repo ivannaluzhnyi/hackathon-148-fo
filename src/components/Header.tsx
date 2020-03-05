@@ -45,6 +45,7 @@ const StyledSection = styled.section`
 const MainBtn = styled(Button)`
     width: 180px;
     padding: 12px;
+    color: white;
 `;
 
 const StyledAppBar = styled(AppBar)`

@@ -35,6 +35,8 @@ const Wrapper = styled(Grid)`
 
 const SelectGridItem = styled(Grid)`
     padding: 0 20px;
+    /* margin: auto; */
+    width: 100%;
 `;
 
 const icon = <CheckBoxOutlineBlankIcon color="primary" fontSize="small" />;
@@ -98,7 +100,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                     {array.map((st, idx) => {
                         const isActive = sector && sector.value === st.value;
                         return (
-                            <Grid key={idx} item xs={8} md={4}>
+                            <Grid key={idx} item>
                                 <GridItem
                                     onClick={() =>
                                         setSector(isActive ? undefined : st)
@@ -117,7 +119,7 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                         array.find(a => a.value === sector.value) !==
                             undefined && (
                             <Grid container>
-                                <SelectGridItem item xs>
+                                <SelectGridItem item xs md>
                                     <Autocomplete
                                         multiple
                                         options={
