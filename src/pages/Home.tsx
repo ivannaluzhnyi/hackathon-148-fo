@@ -9,6 +9,7 @@ import Zoom from '@material-ui/core/Zoom';
 import { Toolbar } from '@material-ui/core';
 import WebAgency from '../components/home-page/WebAgency';
 import Clients from '../components/home-page/Clients';
+import Footer from '../components/Footer';
 
 interface Props {
     window?: () => Window;
@@ -79,6 +80,8 @@ const Home = () => {
             <CompletedProject />
 
             <Clients />
+
+            <Footer />
 
             <ScrollTop>
                 <Fab

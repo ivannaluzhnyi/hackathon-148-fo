@@ -5,10 +5,20 @@ import AdwLogoWhite from '../assets/icons/adw-logo-white.svg';
 import AdwLogoBlack from '../assets/icons/adw-logo-black.svg';
 
 import IconBgConnexion from '../assets/icons/bg-connexion.svg';
-
 import Quote from '../assets/icons/quote.svg';
-
 import Bg1OnePage from '../assets/icons/bg-1-onepage.svg';
+
+import Instagram from '../assets/icons/instagram.svg';
+import Facebook from '../assets/icons/facebook.svg';
+import Twitter from '../assets/icons/twitter.svg';
+
+// SECTOR
+
+import App from '../assets/icons/sector/app.svg';
+import Buzz from '../assets/icons/sector/buzz.svg';
+import Conseil from '../assets/icons/sector/conseil.svg';
+import crea from '../assets/icons/sector/crea.svg';
+
 
 export enum EResource {
     LOGO_148 = 'logo-148',
@@ -18,6 +28,10 @@ export enum EResource {
     ADW_LOGO_BALCK = 'adw-logo-black',
     BG_1_ONEPAGE = 'bg-1-onepage',
     Quote = 'ic-quote',
+
+    Instagram = 'ic-inst',
+    Facebook = 'ic-face',
+    Twitter = 'ic-twit',
 }
 
 export interface Resources {
@@ -32,4 +46,7 @@ export default {
     'bg-1-onepage': Bg1OnePage,
     'ic-quote': Quote,
     'ic-bg-connexion': IconBgConnexion,
+    'ic-inst': Instagram,
+    'ic-face': Facebook,
+    'ic-twit': Twitter,
 };
