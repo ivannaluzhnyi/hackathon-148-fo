@@ -18,7 +18,8 @@ import App from '../assets/icons/sector/app.svg';
 import Buzz from '../assets/icons/sector/buzz.svg';
 import Conseil from '../assets/icons/sector/conseil.svg';
 import crea from '../assets/icons/sector/crea.svg';
-
+import event from '../assets/icons/sector/event.svg';
+import web from '../assets/icons/sector/web.svg';
 
 export enum EResource {
     LOGO_148 = 'logo-148',
@@ -32,6 +33,13 @@ export enum EResource {
     Instagram = 'ic-inst',
     Facebook = 'ic-face',
     Twitter = 'ic-twit',
+
+    App = 'ic-sector-app', 
+    Buzz = 'ic-sector-buzz',
+    Conseil = 'ic-sector-conseil',
+    crea = 'ic-sector-crea',
+    event = 'ic-sector-event',
+    web = 'ic-sector-web',
 }
 
 export interface Resources {
@@ -49,4 +57,12 @@ export default {
     'ic-inst': Instagram,
     'ic-face': Facebook,
     'ic-twit': Twitter,
+
+    'ic-sector-app': App,
+    'ic-sector-buzz': Buzz,
+    'ic-sector-conseil': Conseil,
+    'ic-sector-crea': crea,
+    'ic-sector-event': event,
+    'ic-sector-web': web
+
 };

@@ -10,10 +10,31 @@ import { Select } from 'Types';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import wording from '../../utils/wording.json';
+import { EResource } from '../../utils/resources';
+import Icon from '../Icon';
 
 const Form = styled.form`
     width: 80%;
 `;
+
+const getImgMapping = (value: string) => {
+    switch (value) {
+        case 'counceil':
+            return EResource.Conseil;
+        case 'creation':
+            return EResource.crea;
+
+        case 'web':
+            return EResource.web;
+        case 'event':
+            return EResource.event;
+        case 'buzz':
+            return EResource.Buzz;
+
+        default:
+            return EResource.Conseil;
+    }
+};
 
 const GridItem: React.FC<any> = props => {
     const StyledG = styled(Grid)`
@@ -23,7 +44,7 @@ const GridItem: React.FC<any> = props => {
         cursor: pointer;
         margin: auto;
         width: 150px;
-        height: 99px;
+        height: 110px;
     `;
 
     return <StyledG {...props}>{props.children}</StyledG>;
@@ -51,6 +72,22 @@ const SectorTextItem: React.FC<any> = props => {
         width: 100%;
         height: 100%;
         font-weight: ${(props: any) => (props.isActive ? 500 : 400)};
+
+        & > div {
+            display: flex;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: centre;
+
+            & > img {
+                margin-top: 16px;
+            }
+
+            & > p {
+                align-self: center;
+            }
+        }
     `;
 
     return (
@@ -108,7 +145,16 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                                     active={isActive}
                                 >
                                     <SectorTextItem isActive={isActive}>
-                                        {st.label}
+                                        <div>
+                                            <Icon
+                                                type={
+                                                    getImgMapping(
+                                                        st.value,
+                                                    ) as EResource
+                                                }
+                                            />
+                                            <p>{st.label}</p>
+                                        </div>
                                     </SectorTextItem>
                                 </GridItem>
                             </Grid>
