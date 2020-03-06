@@ -117,10 +117,8 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
     useEffect(() => {
         if (currentScreenIndex === 5) {
             sendInscriptionDispatch(inscriptionData);
-        }
 
-        // Fake auth
-        if (currentScreenIndex === 6) {
+            // Fake auth
             setTimeout(() => {
                 setIndex(currentScreenIndex + 1);
             }, 3000);
@@ -136,7 +134,7 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
         setIndex(currentScreenIndex + 1);
     };
 
-    if (currentScreenIndex === 7 && AuthService.isAuthenticated()) {
+    if (currentScreenIndex === 6 && AuthService.isAuthenticated()) {
         return (
             <Redirect
                 to={{ pathname: getPathnameByUser() || '/client-space' }}

@@ -54,12 +54,10 @@ const SidebarNav = (props: any) => {
                     disableGutters
                     key={page.title}
                 >
-                    <Link to={page.href}>
-                        <Button className={classes.button}>
-                            <div className={classes.icon}>{page.icon}</div>
-                            {page.title}
-                        </Button>
-                    </Link>
+                    <Button className={classes.button}>
+                        <div className={classes.icon}>{page.icon}</div>
+                        {page.title}
+                    </Button>
                 </ListItem>
             ))}
 
