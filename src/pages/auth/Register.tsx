@@ -24,7 +24,7 @@ import { sendInscriptionAsync } from '../../actions/inscription.actions';
 import { RootState } from 'Types';
 import { connect } from 'react-redux';
 import AuthService from '../../services/auth-service';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { getPathnameByUser } from '../../utils/helper';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
@@ -114,19 +114,16 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
 
     const [inscriptionData, setData] = useState<any>({});
 
-    const checked = AuthService.isAuthenticated();
-
-    useEffect(() => {
-        if (checked) {
-            history.push(getPathnameByUser() || '/client-space');
-        }
-    }, [checked, history]);
-
     useEffect(() => {
         if (currentScreenIndex === 5) {
             sendInscriptionDispatch(inscriptionData);
+        }
 
-            console.log('inscriptionData= > ', inscriptionData);
+        // Fake auth
+        if (currentScreenIndex === 6) {
+            setTimeout(() => {
+                setIndex(currentScreenIndex + 1);
+            }, 3000);
         }
     }, [currentScreenIndex, sendInscriptionDispatch, inscriptionData]);
 
@@ -138,6 +135,14 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
 
         setIndex(currentScreenIndex + 1);
     };
+
+    if (currentScreenIndex === 7 && AuthService.isAuthenticated()) {
+        return (
+            <Redirect
+                to={{ pathname: getPathnameByUser() || '/client-space' }}
+            />
+        );
+    }
 
     const renderScreen = () => {
         const Component: any = containers[currentScreenIndex];

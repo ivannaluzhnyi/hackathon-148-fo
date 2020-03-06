@@ -33,13 +33,13 @@ const getPathnameByUser = () => {
     const ut = AuthService.getUserType();
     switch (ut) {
         case 'admin':
-            return 'admin-space';
+            return '/admin-space';
 
         case 'customer':
-            return 'client-space';
+            return '/client-space';
 
         default:
-            return 'client-space';
+            return '/client-space';
     }
 };
 

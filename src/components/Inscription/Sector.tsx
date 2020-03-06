@@ -139,9 +139,10 @@ const Sector: React.FC<{ handelValidateScreen: (props: any) => void }> = ({
                         return (
                             <Grid key={idx} item>
                                 <GridItem
-                                    onClick={() =>
-                                        setSector(isActive ? undefined : st)
-                                    }
+                                    onClick={() => {
+                                        setSector(isActive ? undefined : st);
+                                        setSectorCategories([]);
+                                    }}
                                     active={isActive}
                                 >
                                     <SectorTextItem isActive={isActive}>

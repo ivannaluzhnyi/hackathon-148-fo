@@ -50,14 +50,13 @@ const MainAddProfile: React.FC = () => {
             <StyldContainer>
                 <Grid container justify="flex-start" direction="row">
                     <Grid item xs={12} md={5}>
-                        <Title>Lorem Ipsum dolar sit amet ipsum </Title>
+                        <Title>Devenir un agent du web</Title>
 
                         <Description>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Suspendisse quis lacus vitae elit porttitor
-                            suscipit. Praesent scelerisque dictum nibh et
-                            lacinia. Mauris in porttitor augue. Pellentesque
-                            consequat
+                            Les Agents du Web sont des prestataires freelances,
+                            formés à la stack technique, à la méthodologie et à
+                            la philosophie créative de 148, qui répondent, seuls
+                            ou en équipe, à des projets fournis par l’agence.
                         </Description>
 
                         <StyledButton

@@ -253,6 +253,73 @@
                 "value": "adobe_id",
                 "label": "Adobe InDesign"
             }
+        ],
+
+        "product_manager": [
+            {
+                "id": "agile",
+                "value": "agile",
+                "label": "Agile"
+            },
+
+            {
+                "id": "cicleV",
+                "value": "cicleV",
+                "label": "cicle en V"
+            }
+        ],
+        "mobile_dev": [
+            {
+                "id": "flutter",
+                "value": "flutter",
+                "label": "Flutter"
+            },
+
+            {
+                "id": "ionic",
+                "value": "ionic",
+                "label": "Ionic"
+            },
+
+            {
+                "id": "reactNative",
+                "value": "reactNative",
+                "label": "React Native"
+            },
+
+            {
+                "id": "xamarin",
+                "value": "xamarin",
+                "label": "Xamarin"
+            }
+        ],
+        "admin_system": [
+            {
+                "id": "packetCisco",
+                "value": "packetCisco",
+                "label": "Packet cisco"
+            }
+        ],
+        "motion_designer": [
+            {
+                "id": "afterEffect",
+                "value": "afterEffect",
+                "label": "After effect"
+            }
+        ],
+        "data_scientist": [
+            {
+                "id": "python",
+                "value": "python",
+                "label": "Python"
+            }
+        ],
+        "ergonome": [
+            {
+                "id": "ergonome",
+                "value": "ergonome",
+                "label": "ergonome"
+            }
         ]
     },
     "typeUser": [

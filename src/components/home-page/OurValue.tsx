@@ -5,44 +5,52 @@ import Icon from '../Icon';
 import { EResource } from '../../utils/resources';
 import Section from '../Section';
 
-const Item = styled(Grid)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+// const Item = styled(Grid)`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
 
-    width: calc(100% / 3.5);
+//     width: calc(100% / 3.5);
 
-    & > img {
-        border-radius: 50%;
-        width: 230px;
-        height: 230px;
-    }
+//     & > img {
+//         border-radius: 50%;
+//         width: 230px;
+//         height: 230px;
+//     }
 
-    & > p {
-        text-align: center;
-        font-size: 20px;
+//     & > p {
+//         text-align: center;
+//         font-size: 20px;
+//     }
+// `;
+
+const StyledTitle = styled(Grid)`
+    text-align: center;
+
+    & > h1 {
     }
 `;
 
 const OurValue: React.FC = () => {
-    const values = [
-        {
-            imageSrc: EResource.LOGO_148,
-            description:
-                'loream ispus sdfjbsiu sduqsdqsdqs       qsdqs qsd qs dqs dqs dd q dqsd qsifh siulkfiuslhoamiljzdk',
-        },
-        {
-            imageSrc: EResource.LOGO_148,
-            description:
-                'loream ispus sdfjbsiu sduifdqdqsds qsd qd qssdqs qsd qs dh siulkfiuslhoamiljzdk',
-        },
-        {
-            imageSrc: EResource.LOGO_148,
-            description:
-                'loream ispus sdfjbsiu sduifqsd qd qsdqs qdqs dh siulkfiuslhoamiljzdk',
-        },
-    ];
+    // const values = [
+    //     {
+    //         imageSrc: EResource.LOGO_148,
+    //         title: 'Innover',
+    //         description:
+    //             '148 allie Conseil stratégique créatif et Solutions techniques innovantes',
+    //     },
+    //     {
+    //         imageSrc: EResource.LOGO_148,
+    //         title: 'Transmettre',
+    //         description: '148 est labélisée B Corp',
+    //     },
+    //     {
+    //         imageSrc: EResource.LOGO_148,
+    //         title: 'Connecter',
+    //         description: '50% créativité sauvage 50% technique féroce',
+    //     },
+    // ];
 
     return (
         <Section>
@@ -54,12 +62,20 @@ const OurValue: React.FC = () => {
                     alignItems="center"
                     spacing={3}
                 >
-                    {values.map(({ imageSrc, description }, idx) => (
+                    <StyledTitle item xs>
+                        <h1>Nos valeur</h1>
+                    </StyledTitle>
+                    {/* {values.map(({ imageSrc, description, title }, idx) => (
                         <Item key={idx} item xs={12} md={3}>
                             <Icon type={imageSrc} />
+                            <p>
+                                <b>{title}</b>
+                            </p>
                             <p>{description}</p>
                         </Item>
-                    ))}
+                    ))} */}
+
+                    <Icon type={EResource.OurValue} />
                 </Grid>
             </Container>
         </Section>

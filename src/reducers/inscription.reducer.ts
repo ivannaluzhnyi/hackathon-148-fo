@@ -5,7 +5,31 @@ import * as actions from '../actions/inscription.actions';
 
 export type AuthState = Readonly<{}>;
 
-const initialState: any = {};
+const initialState: any = {
+    sector: {
+        value: '',
+        categories: [],
+    },
+    profession: {
+        expirience: undefined,
+        typeUser: undefined,
+        categories: [],
+        skills: [],
+    },
+    moreInformation: {
+        description: '',
+        cv: '',
+        portolio: '',
+        validate_condition: false,
+    },
+    userInfo: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirm_password: '',
+    },
+};
 
 type Actions = actions.InscriptionAction;
 

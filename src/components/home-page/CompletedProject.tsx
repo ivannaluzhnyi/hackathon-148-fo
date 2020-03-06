@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Container } from '@material-ui/core';
-import { EResource, EResourceCompletedProject } from '../../utils/resources';
+import { EResourceCompletedProject } from '../../utils/resources';
 import Icon from '../Icon';
 import Section from '../Section';
 
