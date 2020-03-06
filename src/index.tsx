@@ -1,3 +1,11 @@
+/**
+ * @author [Ivan Naluzhnyi]
+ * @email [ivan.nalzuhnyi@gmail.com]
+ * @create date 2020-03-02 14:36:27
+ * @modify date 2020-03-05 19:11:26
+ * @desc [Hackthon project for 148 company ]
+ */
+
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App';

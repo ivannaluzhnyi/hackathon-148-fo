@@ -1,13 +1,20 @@
 import React from 'react';
 
-import resources, { EResource, Resources } from '../utils/resources';
+import resources, {
+    EResource,
+    Resources,
+    EResourceCompletedProject,
+} from '../utils/resources';
+
+export type TIcon = EResource | EResourceCompletedProject;
 
 export interface Icon {
-    type: EResource;
+    type: TIcon;
     w?: string | number;
     h?: string | number;
 }
-const getSrc = (type: EResource) => {
+
+const getSrc = (type: TIcon) => {
     return (resources as Resources)[type as any];
 };
 const Icon: React.FC<Icon> = ({ type, h, w }) => {

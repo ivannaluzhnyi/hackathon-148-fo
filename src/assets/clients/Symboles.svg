@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="131.041" height="37.353" viewBox="0 0 131.041 37.353">
+  <g id="Symboles" transform="translate(-0.911)">
+    <g id="_-HEADER-OK" data-name="//-HEADER-OK" transform="translate(0.911)">
+      <g id="_-HEADER" data-name="//-HEADER">
+        <g id="::-header">
+          <g id=":::-logo" transform="translate(0 0)">
+            <path id="Fill-1" d="M0,37.353H131.041V0H0Z" fill="#1a3c7b" fill-rule="evenodd"/>
+            <path id="Fill-2" d="M24.8,31.663,29.055,18.6V31.663h6.352V11H26.832L22.7,21.222,18.571,11H9.993V31.663h6.353V18.6l4.292,13.061Z" transform="translate(-2.051 -2.258)" fill="#fae400" fill-rule="evenodd"/>
+            <g id="Group-11" transform="translate(37.41 8.76)">
+              <path id="Fill-3" d="M65.831,7.152c0,.442-.111.83-.913.83H57.44V4.037h7.489c.911,0,.9.589.9.957Zm1.789,4.882c2.012-.16,4.022-1.514,4.022-3.74V3.733A4.1,4.1,0,0,0,67.59.023H50.984V20.515H57.44V11.97H59.7l4.521,8.545h7.424l-5.009-8.481Z" transform="translate(-10.548 -0.023)" fill="#fae400" fill-rule="evenodd"/>
+              <path id="Fill-5" d="M17,4.077V.024H.1V20.515H17V16.46H6.528l0-4.275H17V8.144H6.53V4.077Z" transform="translate(-0.105 -0.023)" fill="#fae400" fill-rule="evenodd"/>
+              <path id="Fill-7" d="M30.568,4.078h-6.09V.024H43.064V4.078H36.976V20.515H30.568Z" transform="translate(-5.108 -0.023)" fill="#fae400" fill-rule="evenodd"/>
+              <path id="Fill-9" d="M95.62,15.569a.939.939,0,0,1-.915.915H87.7a1,1,0,0,1-.972-.915V4.852c.029-.231.14-.721.938-.8h7.046c.8.077.883.568.913.8ZM98.047.023H84.3c-2.066.163-3.809,1.2-4.046,3.517V16.8A4.087,4.087,0,0,0,84.3,20.515h13.75a4.078,4.078,0,0,0,4.04-3.711V3.54C101.855,1.223,100.112.186,98.047.023Z" transform="translate(-16.556 -0.023)" fill="#fae400" fill-rule="evenodd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

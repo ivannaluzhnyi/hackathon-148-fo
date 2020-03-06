@@ -1,9 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Container } from '@material-ui/core';
-import { EResource } from '../../utils/resources';
+import { EResource, EResourceCompletedProject } from '../../utils/resources';
 import Icon from '../Icon';
 import Section from '../Section';
+
+interface PropsImg {
+    src: EResourceCompletedProject;
+    title: string;
+    description: string;
+}
 
 const H = styled.h1`
     text-align: center;
@@ -21,7 +27,7 @@ const Overlay = styled.div`
     width: 350px;
     opacity: 0;
     transition: 0.5s ease;
-    background-color: black;
+    background-color: #030f4b;
 `;
 
 const WrapperImage = styled.div`
@@ -42,21 +48,16 @@ const Content = styled.div`
     height: 100%;
 `;
 
-const ImageComponenent: React.FC<{ src: any }> = ({ src }) => {
+const ImageComponenent: React.FC<PropsImg> = ({ src, title, description }) => {
     return (
         <WrapperImage>
             <Img w={350} h={240} type={src} />
             <Overlay className="overlay">
                 <Content>
                     <p>
-                        <span>Title :</span> Hello
+                        <b>{title}</b>
                     </p>
-                    <p>
-                        <span>Title :</span> Hello
-                    </p>
-                    <p>
-                        <span>Title :</span> Hello
-                    </p>
+                    <p>{description}</p>
                 </Content>
             </Overlay>
         </WrapperImage>
@@ -66,22 +67,43 @@ const ImageComponenent: React.FC<{ src: any }> = ({ src }) => {
 const CompletedProject = () => {
     const data = [
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.Metro,
+            title: 'Site web',
+            description:
+                "Design d'un outil de recrutement Taleo d'Oracle et campagne photographique",
         },
+
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.Courseur,
+            title: 'Application mobile',
+            description: 'Une nouvelle façon de faire ses courses',
         },
+
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.Respire,
+            title: 'Application',
+            description:
+                'Conception d’une application mobile pour Respire, l’Association Nationale pour la Préservation et l’Amélioration de la Qualité de l’Air.',
         },
+
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.Alimetier,
+            title: 'Site web, communication et stands',
+            description:
+                'Alimétiers est un programme de longue date, piloté par Opcalim afin de valoriser les métiers ainsi que les formations du secteur de l’alimentaire.',
         },
+
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.FruitsDetendus,
+            title: 'Site Web',
+            description:
+                'Les Fruits Détendus est une jeune marque d’en-cas bio, vegan, composés de fruits séchés construite autour de valeurs telle celle de bien se nourrir sans se prendre au sérieux.',
         },
+
         {
-            src: EResource.TestSvg,
+            src: EResourceCompletedProject.SosHomophobie,
+            title: 'Site Web - Projet fictif',
+            description: 'Refonte du site web SOS Homophobie.',
         },
     ];
     return (
@@ -95,9 +117,9 @@ const CompletedProject = () => {
                     alignItems="center"
                     spacing={3}
                 >
-                    {data.map(({ src }, idx) => (
+                    {data.map((prosp: PropsImg, idx) => (
                         <Grid key={idx} item xs>
-                            <ImageComponenent src={src} />
+                            <ImageComponenent {...prosp} />
                         </Grid>
                     ))}
                 </Grid>

@@ -161,19 +161,20 @@ const Register: React.FC<RegisterProps> = ({ sendInscriptionDispatch }) => {
                 <div className={classes.paper}>
                     <AppBar color="transparent">
                         <Toolbar>
-                            {currentScreenIndex !== 0 &&
-                                currentScreenIndex !== 5 && (
-                                    <div
-                                        onClick={() =>
-                                            setIndex(currentScreenIndex - 1)
-                                        }
-                                    >
-                                        <IconButton>
-                                            <ArrowBackIosIcon />
-                                        </IconButton>
-                                        <span className="btn">Retoure</span>
-                                    </div>
-                                )}
+                            {currentScreenIndex !== 5 && (
+                                <div
+                                    onClick={() => {
+                                        if (currentScreenIndex === 0)
+                                            history.push('/');
+                                        else setIndex(currentScreenIndex - 1);
+                                    }}
+                                >
+                                    <IconButton>
+                                        <ArrowBackIosIcon />
+                                    </IconButton>
+                                    <span className="btn">Retoure</span>
+                                </div>
+                            )}
                         </Toolbar>
                     </AppBar>
                     <Logo />
