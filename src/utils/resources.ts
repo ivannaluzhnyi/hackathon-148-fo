@@ -12,6 +12,9 @@ import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
 import Twitter from '../assets/icons/twitter.svg';
 
+import OurValue from '../assets/nos_valuers.jpg';
+import clients from '../assets/clients.png';
+
 // SECTOR
 
 import App from '../assets/icons/sector/app.svg';
@@ -49,6 +52,9 @@ export enum EResource {
     crea = 'ic-sector-crea',
     event = 'ic-sector-event',
     web = 'ic-sector-web',
+    OurValue = 'ic-our-value',
+
+    Clients = 'ic-clients',
 }
 
 export enum EResourceCompletedProject {
@@ -75,6 +81,9 @@ export default {
     'ic-inst': Instagram,
     'ic-face': Facebook,
     'ic-twit': Twitter,
+
+    'ic-our-value': OurValue,
+    'ic-clients': clients,
 
     'ic-sector-app': App,
     'ic-sector-buzz': Buzz,

@@ -95,8 +95,8 @@ const WebAgency = () => {
 
     const renderCircles = () => (
         <CircleWrapper>
-            {prepare.map(elm => (
-                <Circle {...elm}>
+            {prepare.map((elm, idx) => (
+                <Circle key={idx} {...elm}>
                     <div>
                         <p>{elm.val}</p>
                         <p> {elm.label} </p>
